@@ -1,0 +1,44 @@
+<mat-toolbar>
+  <button type="button" mat-icon-button (click)="cancel()"><mat-icon>arrow_back</mat-icon></button>
+  <h1>Insert function</h1>
+  <span class="spacer"></span>
+</mat-toolbar>
+
+<div mat-dialog-content class="functions-container" [@openDialog]="isOpen">
+  <mat-accordion hideToggle="true">
+    <mat-expansion-panel *ngFor="let group of functionGroups" class="function-group">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="function-group-name">{{ group.groupName }}</mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ng-template matExpansionPanelContent>
+        <mat-grid-list [cols]="gridColumns" rowHeight="170px" gutterSize="15px">
+          <mat-grid-tile *ngFor="let func of group.functions">
+            <mat-card class="function-card" (click)="emitInsertFunction(func.name)">
+              <mat-card-header class="function-card-header">
+                <mat-card-title>{{ func.displayName }}</mat-card-title>
+                <mat-card-subtitle>{{ func.description }}</mat-card-subtitle>
+              </mat-card-header>
+
+              <mat-card-content>
+                <mat-list role="list">
+                  <div class="func-signature" role="listitem" *ngFor="let signature of func.signatures">
+                    <span class="func-name">{{ func.name }}</span>
+                    <span class="arg-punc">(</span>
+                    <ng-container *ngFor="let arg of signature.args last as isLast">
+                      <span class="arg-type">{{ arg.type }}</span>
+                      <span>&nbsp;</span>
+                      <span class="arg-name">{{ arg.name }}</span>
+                      <span *ngIf="!isLast" class="arg-punc">,&nbsp;</span>
+                    </ng-container>
+                    <span class="arg-punc">)</span>
+                  </div>
+                </mat-list>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,25 @@
+<form #f="ngForm" (ngSubmit)="f.valid && onSubmit(f)">
+  <h1 mat-dialog-title>Define a Variable</h1>
+
+  <mat-toolbar>
+    <button type="button" mat-icon-button (click)="cancel()"><mat-icon>arrow_back</mat-icon></button>
+    <h1>Define a Variable</h1>
+    <span class="spacer"></span>
+    <button type="submit" mat-button [disabled]="!f.valid">Define</button>
+  </mat-toolbar>
+
+  <div mat-dialog-content class="dialog-content">
+    <mat-form-field>
+      <input autocomplete="off" matInput cdkFocusInitial placeholder="Variable name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input autocomplete="off" matInput placeholder="Expression">
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <button type="button" mat-button (click)="cancel()">Cancel</button>
+    <button type="submit" mat-button [disabled]="!f.valid">Define</button>
+  </div>
+</form>

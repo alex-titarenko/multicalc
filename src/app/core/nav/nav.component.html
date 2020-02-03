@@ -1,0 +1,59 @@
+<div class="banner section-circle">
+
+  <div class="shape shape-style-1 shape-primary">
+    <span class="circle-150"></span>
+    <span class="circle-50"></span>
+    <span class="circle-50"></span>
+    <span class="circle-75"></span>
+    <span class="circle-100"></span>
+    <span class="circle-75"></span>
+    <span class="circle-50"></span>
+    <span class="circle-100"></span>
+    <span class="circle-50"></span>
+    <span class="circle-100"></span>
+  </div>
+  <div class="section-shape">
+    <img src="/assets/images/waves-shape.svg" alt="shape image">
+  </div>
+
+  <h2>MultiCalc</h2>
+</div>
+
+<mat-nav-list class="main-menu">
+  <a *ngFor="let module of modules"
+    mat-list-item
+    [routerLink]='module.routerLink'
+    [routerLinkActive]='["link-active"]'
+    [routerLinkActiveOptions]='{ exact: true }'
+    (click)="onItemClick()">
+    <mat-icon [svgIcon]="module.icon"></mat-icon>
+    <span class="label">{{ module.name }}</span>
+  </a>
+</mat-nav-list>
+
+<mat-divider></mat-divider>
+
+<mat-nav-list class="additional-menu">
+  <a mat-list-item (click)="appInstaller.install()" *ngIf="appInstaller.canInstall">
+    <mat-icon>get_app</mat-icon>
+    <span class="label">Install App</span>
+  </a>
+
+  <a mat-list-item
+    routerLink='/settings'
+    [routerLinkActive]='["link-active"]'
+    [routerLinkActiveOptions]='{ exact: true }'
+    (click)="onItemClick()">
+    <mat-icon>settings</mat-icon>
+    <span>Settings</span>
+  </a>
+
+  <a mat-list-item
+    routerLink='/help'
+    [routerLinkActive]='["link-active"]'
+    [routerLinkActiveOptions]='{ exact: false }'
+    (click)="onItemClick()">
+    <mat-icon>contact_support</mat-icon>
+    <span>Help</span>
+  </a>
+</mat-nav-list>

@@ -1,0 +1,50 @@
+.history-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+}
+
+.history-item {
+  font-size: 25px !important;
+  display: flex;
+  flex-direction: column;
+  height: auto !important;
+  margin-bottom: 20px;
+
+  .mat-line:nth-child(n+2) {
+    font-size: inherit;
+  }
+
+  .button {
+    cursor: pointer;
+
+    touch-action: auto !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    padding: 0 10px;
+    white-space: normal;
+    word-break: break-all;
+    border-radius: 5px;
+  }
+
+  .expression {
+    .operator {
+      color: dodgerblue;
+    }
+  }
+
+  .history-expression {
+    // Next 3 lines needed for wrapping
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .history-result {
+    color: darkgray;
+
+    overflow-x: auto;
+  }
+}

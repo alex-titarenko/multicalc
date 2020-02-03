@@ -1,0 +1,72 @@
+<h1 mat-dialog-title>Preferences</h1>
+
+<mat-toolbar>
+  <button type="button" mat-icon-button [mat-dialog-close]="data"><mat-icon>arrow_back</mat-icon></button>
+  <h1>Preferences</h1>
+  <span class="spacer"></span>
+  <button type="button" mat-button (click)="reset()">Reset</button>
+</mat-toolbar>
+
+<div mat-dialog-content>
+  <div class="talex-form-grid">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Decimal places"
+        type="number"
+        talexNumberInput
+        minValue="0"
+        maxValue="17"
+        stepValue="1"
+        [(ngModel)]="data.answerFormat.decimalPlaces">
+      <mat-hint>from 0 to 17</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Numeric format" [(ngModel)]="data.answerFormat.numericFormat">
+        <mat-option value="E">Scientific</mat-option>
+        <mat-option value="F">Fixed-point</mat-option>
+        <mat-option value="G">General</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Complex threshold"
+        type="number"
+        talexNumberInput
+        minValue="0"
+        maxValue="307"
+        stepValue="1"
+        [(ngModel)]="data.answerFormat.complexThreshold">
+      <mat-hint>from 0 to 307</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Zero threshold"
+        type="number"
+        talexNumberInput
+        minValue="0"
+        maxValue="307"
+        stepValue="1"
+        [(ngModel)]="data.answerFormat.zeroThreshold">
+      <mat-hint>from 0 to 307</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Angle mode" [(ngModel)]="data.angleMode">
+        <mat-option value="deg">Degree</mat-option>
+        <mat-option value="rad">Radian</mat-option>
+        <mat-option value="grad">Gradian</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="data">Close</button>
+  <button type="button" mat-button (click)="reset()">Reset</button>
+</div>

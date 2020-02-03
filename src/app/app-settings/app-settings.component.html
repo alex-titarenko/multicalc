@@ -1,0 +1,20 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="onMenuToggle()"><mat-icon>menu</mat-icon></button>
+  <h1>Settings</h1>
+  <span class="spacer"></span>
+  <button type="button" mat-button (click)="reset()">Reset</button>
+</mat-toolbar>
+
+<div class="page-container settings-page">
+  <mat-tab-group>
+    <mat-tab label="General">
+      <div class="tab-container">
+        <mat-list role="list">
+          <mat-list-item>
+            <mat-slide-toggle color="primary" [(ngModel)]="settings.showNewReleasesNotifications">Show new releases notifications</mat-slide-toggle>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,99 @@
+$grid-gap: 10px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.math-keyboard-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  font-size: 25px;
+
+  button {
+    font-size: inherit;
+
+    &.additional-button {
+      background: whitesmoke;
+    }
+
+    &.small {
+      font-size: smaller;
+    }
+
+    &.navigation-button {
+      display: none;
+      position: absolute;
+      top: 25px;
+      bottom: 25px;
+      background: transparent;
+      border: none;
+      outline:none;
+      font-weight: 600;
+      color: gray;
+      // width: 21.5px;
+      margin: 0;
+      padding: 1px 6px;
+      cursor: pointer;
+
+      &.open {
+        right:0;
+      }
+
+      &.close {
+        left:0;
+      }
+    }
+  }
+
+  .toggle-button-checked {
+    border-bottom: 4px solid dodgerblue;
+  }
+
+  .keyboard {
+    flex: 1;
+    display: flex;
+    margin: 0 $grid-gap;
+
+    &:first-child { margin-left: 0; padding-right: 0; }
+    &:last-child { margin-right: 0; padding-left: 0; }
+
+    padding: 25px;
+  }
+
+  .keyboard-container {
+    flex: 1;
+    display: grid;
+    grid-gap: $grid-gap;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+  }
+
+   &.compact {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+    .keyboard {
+      background: white;
+      display: flex;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: 0;
+      padding: 25px !important;
+    }
+
+    .additional-keyboard {
+      transform: translateX(100%);
+    }
+
+    .navigation-button {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.usage-tip-card {
+  margin-bottom: 20px;
+
+  .usage-tip-card-header {
+    padding-top: 16px;
+    margin: -16px;
+    margin-bottom: 0;
+    border-radius: 4px 4px 0 0;
+    background: #f3f3f3;
+  }
+
+  .usage-tip-problem {
+    user-select: text;
+    font-size: 18px;
+  }
+
+  .usage-tip-solution {
+    user-select: text;
+    margin-top: 10px;
+    font-size: 15px;
+  }
+}
+
+p.footer {
+  color: gray;
+  font-size: small;
+}

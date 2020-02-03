@@ -1,0 +1,33 @@
+/* Material overrides */
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+
+mat-sidenav-content {
+  background: white !important;
+}
+
+mat-toolbar {
+  background: white !important;
+  box-shadow: 0 8px 10px -5px rgba(0,0,0,.2);
+  z-index: 2;
+
+  h1 {
+    text-transform: uppercase;
+    user-select: none;
+    font-size: 17px !important;
+    margin-left: 20px !important;
+  }
+}
+
+.mat-slider-wrapper {
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.mat-tooltip {
+  margin: 8px !important;
+  font-size: 12px !important;
+}

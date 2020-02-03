@@ -1,0 +1,41 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "importHelpers": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "root/*": [
+        "*"
+      ],
+      "shared/*": [
+        "src/app/shared/*"
+      ],
+      "app/*": [
+        "src/app/*"
+      ],
+      "ng-common": [
+        "projects/ng-common/src/public_api"
+      ],
+      "mathcore/*": [
+        "projects/mathcore/src/*"
+      ],
+    }
+  }
+}

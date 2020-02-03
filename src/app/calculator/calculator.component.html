@@ -1,0 +1,39 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="onMenuToggle()"><mat-icon>menu</mat-icon></button>
+  <h1>Calculator</h1>
+  <span class="spacer"></span>
+  <button mat-icon-button matTooltip="History" [disabled]="history.length === 0" (click)="openHistory()"><mat-icon>history</mat-icon></button>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openPreferences()">Preferences...</button>
+    <button mat-menu-item (click)="openHelp()">Help...</button>
+  </mat-menu>
+</mat-toolbar>
+
+<div class="page-container calculator-page">
+  <div class="expression-container">
+    <app-expression-input #exprInput
+      [answer]="answer"
+      [answerFormat]="preferences.answerFormat"
+      (expressionChange)="onExpressionChange($event)"
+      (evaluate)="evaluateExpr()"
+      (resizeComplete)="fitChild.customResize()"></app-expression-input>
+
+    <div class="instant-result" talexFitChild align="top right" [customHandler]="true" #fitChild="FitChild"
+      [ngClass]="{'hidden': answer !== null}"
+      [innerHtml]="instantResult | mathResult:preferences.answerFormat">
+    </div>
+  </div>
+
+  <div class="keyboard-container">
+    <app-math-keyboard
+      [keyboardMode]="keyboardMode"
+      (input)="exprInput.input($event)"
+      (backspace)="exprInput.backspace()"
+      (clear)="exprInput.clear()"
+      (evaluate)="evaluateExpr()"
+      (insertFunction)="openInsertFunctionDialog()">
+    </app-math-keyboard>
+  </div>
+</div>

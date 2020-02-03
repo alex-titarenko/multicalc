@@ -1,0 +1,23 @@
+html, body {
+  height: 100%;
+  min-height: 350px;
+  min-width: 200px;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  user-select: none;
+}
+
+input {
+  user-select: auto !important;
+}
+
+a {
+  text-decoration: none;
+  color: dodgerblue;
+}

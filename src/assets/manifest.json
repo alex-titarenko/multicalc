@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json.schemastore.org/web-manifest",
+  "name": "MultiCalc",
+  "short_name": "MultiCalc",
+  "lang": "en-US",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "background_color": "#fff",
+  "theme_color": "#005A9C",
+  "description": "A powerful, modern, multifunctional calculator made for everyone.",
+  "icons": [
+    {
+      "src": "/assets/images/app/icon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/app/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/app/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/app/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/app/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "iarc_rating_id": "239a1560-dfa1-4da3-b867-a9aa42c0b195",
+  "categories": [
+    "utilities",
+    "productivity"
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/images/screenshots/play/calculator.png",
+      "sizes": "1080x2160",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/screenshots/play/calculator_advance_keyboard.png",
+      "sizes": "1080x2160",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/screenshots/play/calculator_complex.png",
+      "sizes": "1080x2160",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/screenshots/play/calculator_matrices.png",
+      "sizes": "1080x2160",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/screenshots/play/calculator_insert_function.png",
+      "sizes": "1080x2160",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/screenshots/play/calculator_history_panel.png",
+      "sizes": "1080x2160",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/screenshots/play/calculator_result_format.png",
+      "sizes": "1080x2160",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/screenshots/play/plot2d.png",
+      "sizes": "1080x2160",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/screenshots/play/unit-converter.png",
+      "sizes": "1080x2160",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details/?id=app.multicalculator",
+      "id": "app.multicalculator"
+    },
+    {
+      "platform": "windows",
+      "url": "https://www.microsoft.com/store/apps/9P2PGQMJ79BF",
+      "id": "9P2PGQMJ79BF"
+    }
+  ]
+}

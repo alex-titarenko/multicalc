@@ -1,0 +1,9 @@
+<mat-sidenav-container hasBackdrop="true">
+  <mat-sidenav #snav mode="over" [autoFocus]="false">
+    <app-nav (itemClick)="snav.toggle()"></app-nav>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet (activate)="$event.setMenuToggle && $event.setMenuToggle(snav)"></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,41 @@
+@mixin portrait {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+.talex-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px 20px;
+  justify-items: stretch;
+  align-items: center;
+
+  @include portrait {
+    grid-template-columns: auto;
+    grid-gap: 20px 0;
+  }
+
+  .talex-form-item-2cols {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    @include portrait {
+      grid-column-end: 2 !important;
+    }
+  }
+
+  .talex-form-field {
+    display: grid;
+
+    .talex-form-label-wrapper {
+      user-select: none;
+      color: rgba(0, 0, 0, 0.87);
+
+      label {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 13px;
+      }
+    }
+  }
+}

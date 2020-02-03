@@ -1,0 +1,35 @@
+<div class="page-wrapper">
+  <mat-toolbar>
+    <button mat-icon-button aria-label="Menu" (click)="onMenuToggle()"><mat-icon>menu</mat-icon></button>
+    <h1>Plot 2D</h1>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="addTrace()" matTooltip="Add trace"><mat-icon>add</mat-icon></button>
+    <button mat-icon-button (click)="showTraces()" [disabled]="traces.length === 0" matTooltip="Show traces"><mat-icon>format_list_bulleted</mat-icon></button>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="plot.resetViewport()">Reset viewport</button>
+      <div>
+        <span class="menu-item-text">Drag mode</span>
+        <mat-button-toggle-group class="menu-toggle-buttons" [(value)]="dragMode">
+        <mat-button-toggle value="HandTool"><mat-icon>pan_tool</mat-icon></mat-button-toggle>
+        <mat-button-toggle value="MarqueeZoom"><mat-icon>zoom_in</mat-icon></mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <button mat-menu-item (click)="openPreferences()">Preferences...</button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <div class="page-container">
+    <app-plot2d-canvas #plot
+      [traces]="traces"
+      [dragMode]="dragMode"
+      [backgroundColor]="preferences.backgroundColor"
+      [foregroundColor]="preferences.foregroundColor"
+      [gridlinesColor]="preferences.gridlinesColor"
+      [axesColor]="preferences.axesColor"
+      [gridlinesVisibility]="preferences.gridlinesVisibility"
+      [axesVisibility]="preferences.axesVisibility">
+    </app-plot2d-canvas>
+  </div>
+</div>

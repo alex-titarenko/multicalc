@@ -1,0 +1,91 @@
+<div class="math-keyboard-container"
+  #keyboardContainer
+  [ngClass]="{'compact': keyboardMode === 1}"
+  [@additionalKeyboard]="additionalKeyboardState"
+  (@additionalKeyboard.done)="updateAdditionalKeyboardOffset()"
+  (panstart)="onPanStart()"
+  (panmove)="onPanMove(100 / keyboardContainer.clientWidth * $event.deltaX)"
+  (panend)="onPanEnd($event)">
+
+  <div
+    class="keyboard main-keyboard"
+    [ngStyle]="{'opacity': keyboardMode === 0 ? 1 : additionalKeyboardOffset / 100 }">
+
+    <div class="keyboard-container">
+      <button mat-raised-button talexClickable (elClick)="emitInsertFunction()" class="additional-button" matTooltip="Insert function">fn</button>
+      <button mat-raised-button talexClickable class="additional-button" disabled matTooltip="Insert variable">var</button>
+      <button mat-raised-button talexClickable (elClick)="emitClear()" class="additional-button" matTooltip="Clear">c</button>
+      <button mat-raised-button talexClickable (elClick)="emitBackspace()" (elPress)="emitClear()" class="additional-button" matTooltip="Backspace">
+        <mat-icon>backspace</mat-icon>
+      </button>
+
+      <button mat-raised-button talexClickable (elClick)="emitInput('7')">7</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('8')">8</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('9')">9</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('/')" (elPress)="emitInput('mod(')" class="additional-button">÷</button>
+
+      <button mat-raised-button talexClickable (elClick)="emitInput('4')" (elPress)="emitInput('D')">4</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('5')" (elPress)="emitInput('E')">5</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('6')" (elPress)="emitInput('F')">6</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('*')" (elPress)="emitInput('^')" class="additional-button">×</button>
+
+      <button mat-raised-button talexClickable (elClick)="emitInput('1')" (elPress)="emitInput('A')">1</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('2')" (elPress)="emitInput('B')">2</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('3')" (elPress)="emitInput('C')">3</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('-')" class="additional-button">−</button>
+
+      <button mat-raised-button talexClickable (elClick)="emitInput('0')" (elPress)="showExtendedInput(extendedInputs.zero)">0</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('.')" (elPress)="showExtendedInput(extendedInputs.decimal)">.</button>
+      <button mat-raised-button talexClickable (elClick)="emitEvaluate()">=</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('+')" class="additional-button">+</button>
+
+      <button class="navigation-button open" talexClickable (elClick)="openAdditionalKeyboard()">〈</button>
+    </div>
+  </div>
+
+  <div
+    class="keyboard additional-keyboard"
+    [ngStyle]="{'transform': 'translateX(' + additionalKeyboardOffset + '%)'}">
+
+    <div class="keyboard-container">
+      <button class="navigation-button close" talexClickable (elClick)="closeAdditionalKeyboard()">〉</button>
+
+      <button mat-raised-button talexClickable (elClick)="toggleInverse()" class="additional-button" [ngClass]="{'toggle-button-checked': inverseOn}">inv</button>
+      <button mat-raised-button talexClickable (elClick)="toggleHyperbolic()" class="additional-button" [ngClass]="{'toggle-button-checked': hyperbolicOn}">hyp</button>
+      <button mat-raised-button talexClickable class="additional-button" disabled matTooltip="Insert matrix">mat</button>
+      <button mat-raised-button talexClickable class="additional-button" disabled matTooltip="Insert constant">con</button>
+
+      <button mat-raised-button talexClickable (elClick)="emitInput('sin(', 'asin(', 'sinh(', 'asinh(')">
+        <span [innerHtml]="formatLabel('sin', 'sin<sup><small>-1</small></sup>', '<small>sinh</small>', '<small>sinh<sup><small>-1</small><sup></small>')"></span>
+      </button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('cos(', 'acos(', 'cosh(', 'acosh(')">
+        <span [innerHtml]="formatLabel('cos', 'cos<sup><small>-1</small></sup>', '<small>cosh<small>', '<small>cosh<sup><small>-1</small><sup></small>')"></span>
+      </button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('tan(', 'atan(', 'tanh(', 'atanh(')">
+        <span [innerHtml]="formatLabel('tan', 'tan<sup><small>-1</small></sup>', '<small>tanh</small>', '<small>tanh<sup><small>-1</small><sup></small>')"></span>
+      </button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('pi')">π</button>
+
+      <button mat-raised-button talexClickable (elClick)="emitInput('ln(', 'exp(')">
+        <span [innerHtml]="formatLabel('ln', 'e<sup><small>x</small></sup>')"></span>
+      </button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('log(', 'powten(')">
+        <span [innerHtml]="formatLabel('log', '10<sup><small>x</small></sup>')"></span>
+      </button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('√', 'sqr(')">
+        <span [innerHtml]="formatLabel('√', 'x<sup><small>2</small></sup>')"></span>
+      </button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('e')">e</button>
+
+      <button mat-raised-button talexClickable (elClick)="emitInput('inv(')" matTooltip="Inverse">1/x</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('abs(')" matTooltip="Absolute value">|x|</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('%')">%</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('^')" matTooltip="Raise to power">^</button>
+
+      <button mat-raised-button talexClickable (elClick)="emitInput('(')" (elPress)="emitInput('[')">(</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput(')')" (elPress)="emitInput(']')">)</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('i')" matTooltip="Imaginary Unit i">i</button>
+      <button mat-raised-button talexClickable (elClick)="emitInput('fact(')" matTooltip="Factorial">n!</button>
+    </div>
+  </div>
+</div>

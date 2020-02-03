@@ -1,0 +1,38 @@
+<mat-toolbar>
+  <button type="button" mat-icon-button (click)="cancel()"><mat-icon>arrow_back</mat-icon></button>
+  <h1>History</h1>
+  <span class="spacer"></span>
+  <button type="button" mat-button (click)="clear()">Clear</button>
+</mat-toolbar>
+
+<div mat-dialog-content class="history-content">
+  <mat-list role="list">
+    <ng-container *ngFor="let bracket of historyBrackets; first as isFirst">
+      <mat-divider *ngIf="!isFirst"></mat-divider>
+      <h3 matSubheader>{{ bracket.name }}</h3>
+
+      <ng-container
+        *ngFor="let historyItem of bracket.items"
+        [ngTemplateOutlet]="historyItemTemplate"
+        [ngTemplateOutletContext]="{ historyItem: historyItem }">
+      </ng-container>
+    </ng-container>
+  </mat-list>
+</div>
+
+<ng-template let-historyItem="historyItem" #historyItemTemplate>
+  <mat-list-item class="history-item">
+    <div matLine matRipple mat-flat-button class="button expression" (click)="emitInsertExpression(historyItem.expression)">
+      <div class="history-expression">
+          <span *ngFor="let token of historyItem.expression"
+          [innerHtml]="token.value | mathToken"
+          [ngClass]="token.type">
+        </span>
+      </div>
+    </div>
+
+    <div matLine matRipple mat-flat-button class="button" (click)="emitInsertResult(historyItem.result)">
+      <div class="history-result" [innerHtml]="historyItem.result | mathResult:data.answerFormat"></div>
+    </div>
+  </mat-list-item>
+</ng-template>

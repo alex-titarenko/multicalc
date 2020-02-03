@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.release-notes-list {
+  padding-left: 15px;
+
+  li {
+    margin: 5px 0;
+  }
+}
