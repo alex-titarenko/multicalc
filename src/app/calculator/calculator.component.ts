@@ -37,7 +37,7 @@ export class CalculatorComponent extends BasePageComponent implements OnInit, Do
   private historyDiffer: IterableDiffer<HistoryItem>;
   private expression: Expression;
 
-  @ViewChild('exprInput')
+  @ViewChild('exprInput', {static: false})
   private expressionInput: ExpressionInputComponent;
 
   constructor(

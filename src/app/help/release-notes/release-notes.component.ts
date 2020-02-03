@@ -10,7 +10,7 @@ import { MatAccordion } from '@angular/material';
 export class ReleaseNotesComponent implements OnInit {
   public releaseNotes: ReleaseInfo[] = null;
 
-  @ViewChild('notes')
+  @ViewChild('notes', {static: false})
   private notes: MatAccordion;
 
   ngOnInit() {
