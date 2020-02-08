@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 28
+  defaultConfig {
+    applicationId "app.multicalculator"
+    minSdkVersion 16
+    targetSdkVersion 28
+    versionCode 3
+    versionName "1.1.1"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    manifestPlaceholders = [
+      // The hostname is used when building the intent-filter, so the TWA is able to
+      // handle Intents to open https://www.multicalculator.app.
+      hostName: "www.multicalculator.app",
+      defaultUrl: "https://www.multicalculator.app",
+      launcherName: "MultiCalc",
+      // This variable below expresses the relationship between the app and the site,
+      // as documented in the TWA documentation at
+      // https://developers.google.com/web/updates/2017/10/using-twa#set_up_digital_asset_links_in_an_android_app
+      // and is injected into the AndroidManifest.xml
+      assetStatements: '[{ "relation": ["delegate_permission/common.handle_all_urls"], ' +
+        '"target": {"namespace": "web", "site": "https://www.multicalculator.app"}}]'
+    ]
+
+    // This attribute sets the status bar color for the TWA. It can be either set here or in
+    // `res/values/colors.xml`. Setting in both places is an error and the app will not
+    // compile. If not set, the status bar color defaults to #FFFFFF - white.
+    resValue "color", "colorPrimary", "#005A9C"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+  implementation 'com.github.GoogleChrome.custom-tabs-client:customtabs:d08e93fce3'
+}
