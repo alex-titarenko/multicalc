@@ -30,6 +30,7 @@
     "@angular/platform-browser-dynamic": "~9.0.0",
     "@angular/router": "~9.0.0",
     "@angular/service-worker": "~9.0.0",
+    "@schematics/angular": "^9.0.1",
     "angulartics2": "^8.3.0",
     "cookieconsent": "^3.1.0",
     "core-js": "^2.5.4",
