@@ -16,7 +16,6 @@ import { CustomRouteReuseStrategy } from './custom-route-reuse-strategy';
 import { cookieConsentConfig } from './configs/cookie-consent.config';
 import { tooltipConfig } from './configs/tooltip.config';
 import { angularticsConfig } from './configs/angulartics.config';
-import { CustomHammerConfig } from './configs/hammerjs.config';
 import { environment } from 'src/environments/environment';
 import { dialogConfig } from './configs/dialog.config';
 import { ExpressionEvaluatorService } from '../shared/expression-evaluator.service';
@@ -30,7 +29,6 @@ import { ExpressionEvaluatorService } from '../shared/expression-evaluator.servi
     { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy },
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: dialogConfig },
     { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: tooltipConfig },
-    { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig },
     { provide: ExpressionEvaluatorService, useClass: ExpressionEvaluatorService }
   ],
   imports: [
