@@ -1,5 +1,6 @@
-import { ElementRef, HostListener } from '@angular/core';
+import { ElementRef, HostListener, Directive } from '@angular/core';
 
+@Directive()
 export abstract class FitBase {
   private resizeTimer: NodeJS.Timer = null;
 

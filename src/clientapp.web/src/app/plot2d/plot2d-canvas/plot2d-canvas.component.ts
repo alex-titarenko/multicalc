@@ -130,10 +130,10 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
   private yAxisScaleInterval: number;
 
 
-  @ViewChild('plot', {static: false})
+  @ViewChild('plot')
   private plotElement: ElementRef;
 
-  @ViewChild('selection', {static: false})
+  @ViewChild('selection')
   private selectionElement: ElementRef;
 
   private get actualWidth() {

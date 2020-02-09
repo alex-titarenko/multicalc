@@ -1,5 +1,7 @@
 import { GestureConfig, HammerInstance } from '@angular/material';
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class CustomHammerConfig extends GestureConfig {
   overrides = {
     'tap': { 'threshold': 9 }

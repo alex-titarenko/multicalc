@@ -1,5 +1,6 @@
-import { ElementRef, HostListener } from '@angular/core';
+import { ElementRef, HostListener, Directive } from '@angular/core';
 
+@Directive()
 export class BasePageComponent {
   constructor(private elementRef: ElementRef = null) {
   }
