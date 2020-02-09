@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, IterableDiffers, IterableDiffer, DoCheck } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { MatDialog, MatSnackBar } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { SettingsService } from 'ng-common';
 

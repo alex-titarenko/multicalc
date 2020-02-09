@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, EventEmitter } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { HistoryData, HistoryItem } from '../shared/history-data.model';
 import { MessageService } from 'ng-common';

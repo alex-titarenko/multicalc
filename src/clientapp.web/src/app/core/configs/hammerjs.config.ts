@@ -1,4 +1,4 @@
-import { GestureConfig, HammerInstance } from '@angular/material';
+import { GestureConfig, HammerInstance } from '@angular/material/core';
 import { Injectable } from "@angular/core";
 
 @Injectable()

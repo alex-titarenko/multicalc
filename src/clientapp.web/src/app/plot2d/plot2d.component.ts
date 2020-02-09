@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { MatDialog, MatBottomSheet } from '@angular/material';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MatDialog } from '@angular/material/dialog';
 
 import { SettingsService } from 'ng-common';
 

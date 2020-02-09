@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, ViewEncapsulation, EventEmitter } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import tinycolor from 'tinycolor2';
 
 interface ColorPickerDialogSettings {

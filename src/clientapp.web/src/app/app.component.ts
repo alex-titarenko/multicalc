@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgcCookieConsentService } from 'ngx-cookieconsent';
 import { Angulartics2GoogleGlobalSiteTag } from 'angulartics2/gst';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 import { ReleaseNotifierService, RouteMetaService } from 'ng-common';
 

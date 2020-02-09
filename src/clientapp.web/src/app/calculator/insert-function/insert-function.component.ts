@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, HostListener, EventEmitter, Output, AfterViewInit } from '@angular/core';
 import { transition, style, animate, trigger, state } from '@angular/animations';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { FunctionMetadata } from 'mathcore/expressions/trees/metadata/function-metadata';
 

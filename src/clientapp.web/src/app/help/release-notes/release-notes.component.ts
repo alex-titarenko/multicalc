@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ReleaseInfo, releaseNotes } from 'root/release-notes';
-import { MatAccordion } from '@angular/material';
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-release-notes',

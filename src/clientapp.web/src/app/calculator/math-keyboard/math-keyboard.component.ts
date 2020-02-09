@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { trigger, style, transition, animate, query, group } from '@angular/animations';
-import { MatBottomSheet } from '@angular/material';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 
 import { ExtendedInputComponent, ExtendedInput } from '../extended-input/extended-input.component';
 

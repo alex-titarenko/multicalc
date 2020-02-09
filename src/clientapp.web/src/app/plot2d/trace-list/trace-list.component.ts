@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialog, MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
+import { MatDialog } from '@angular/material/dialog';
 
 import { TraceEditorComponent } from '../trace-editor/trace-editor.component';
 import { Trace2D } from '../plot2d-canvas/trace2d.model';

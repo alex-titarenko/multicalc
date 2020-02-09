@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { MatBottomSheet } from '@angular/material';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Angulartics2 } from 'angulartics2';
 
 import { SharingService } from 'ng-common';

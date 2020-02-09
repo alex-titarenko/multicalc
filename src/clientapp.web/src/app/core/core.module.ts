@@ -5,7 +5,8 @@ import { RouterModule, RouteReuseStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { Angulartics2Module } from 'angulartics2';
-import { MAT_TOOLTIP_DEFAULT_OPTIONS, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 
 import { MaterialModule } from 'shared/material.module';
 import { NavComponent } from './nav/nav.component';
