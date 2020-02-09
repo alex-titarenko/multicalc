@@ -1,5 +1,5 @@
 import { GestureConfig, HammerInstance } from '@angular/material/core';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CustomHammerConfig extends GestureConfig {

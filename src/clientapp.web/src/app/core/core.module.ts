@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { RouterModule, RouteReuseStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HammerModule } from '@angular/platform-browser';
 import { NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { Angulartics2Module } from 'angulartics2';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
@@ -36,6 +37,7 @@ import { ExpressionEvaluatorService } from '../shared/expression-evaluator.servi
     CommonModule,
     RouterModule,
     MaterialModule,
+    HammerModule,
     NgcCookieConsentModule.forRoot(cookieConsentConfig),
     Angulartics2Module.forRoot(angularticsConfig),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
