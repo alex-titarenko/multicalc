@@ -119,5 +119,13 @@ export const releaseNotes: ReleaseInfo[] = [
     notes: [
       'Update evaluator engine for Plot 2D module to the same which is used in Calculator module',
     ]
+  },
+  {
+    version: '1.3.4',
+    releaseDate: new Date('7/3/2021'),
+    description: 'Bug fixes',
+    notes: [
+      'Update style for Apple devices',
+    ]
   }
 ];
