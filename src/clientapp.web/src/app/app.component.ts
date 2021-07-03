@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ReleaseNotifierService, RouteMetaService } from 'ng-common';
 
 import { AppSettingsService } from 'app/core/app-settings/app-settings.service';
+import { UpdateService } from 'app/core/app-update/update.service';
 import { appConfig } from './core/configs/app.config';
 
 
