@@ -39,7 +39,7 @@
     "reflect-metadata": "0.1.12",
     "rxjs": "^6.5.0",
     "tinycolor2": "1.4.1",
-    "tslib": "^1.10.0",
+    "tslib": "^2.3.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
