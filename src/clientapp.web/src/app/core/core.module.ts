@@ -1,6 +1,5 @@
 import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { RouterModule, RouteReuseStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { HammerModule } from '@angular/platform-browser';
