@@ -21,6 +21,8 @@
       max-height: 900px;
       margin: auto 0;
     }
+
+    padding-bottom: calc(25px + env(safe-area-inset-bottom) / 2);
   }
 }
 

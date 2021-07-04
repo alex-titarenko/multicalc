@@ -22,6 +22,7 @@ $phone-landscape-height: 470px;
 .calculator-page {
   flex-direction: column;
   padding: 0;
+  padding-bottom: calc(env(safe-area-inset-bottom) / 2);
 
   @include phone-landscape {
     flex-direction: row;
