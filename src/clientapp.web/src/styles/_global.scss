@@ -4,6 +4,13 @@ html, body {
   min-width: 200px;
 }
 
+@media all and (display-mode: standalone) {
+  html, body {
+    /* Required for iOS */
+    height: 100vh;
+  }
+}
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
