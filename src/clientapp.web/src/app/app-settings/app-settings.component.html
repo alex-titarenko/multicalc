@@ -9,23 +9,19 @@
   <mat-tab-group>
     <mat-tab label="General">
       <div class="tab-container">
-        <mat-list role="list">
+        <mat-form-field>
+          <mat-select placeholder="Theme" >
+            <mat-option value="S">System default</mat-option>
+            <mat-option value="L">Light</mat-option>
+            <mat-option value="D">Dark</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-          <mat-form-field>
-            <mat-select placeholder="Theme" >
-              <mat-option value="S">System default</mat-option>
-              <mat-option value="L">Light</mat-option>
-              <mat-option value="D">Dark</mat-option>
-            </mat-select>
-          </mat-form-field>
-
-
-          <mat-list-item>
-            <mat-slide-toggle color="primary" [(ngModel)]="settings.showNewReleasesNotifications">
-              Show new releases notifications
-            </mat-slide-toggle>
-          </mat-list-item>
-        </mat-list>
+        <mat-list-item>
+          <mat-slide-toggle color="primary" [(ngModel)]="settings.showNewReleasesNotifications">
+            Show new releases notifications
+          </mat-slide-toggle>
+        </mat-list-item>
       </div>
     </mat-tab>
   </mat-tab-group>
