@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SettingsService } from 'ng-common';
+import { Subject } from 'rxjs';
 
 export type ThemeName = 'system' | 'light' | 'dark';
 
@@ -17,6 +18,7 @@ const APP_SETTINGS_DEFAULTS: AppSettings = {
   providedIn: 'root'
 })
 export class AppSettingsService {
+  public readonly settingsChanged = new Subject<AppSettings>();
   private static readonly GENERAL_SETTING_KEY = 'app';
 
   constructor(private settingsService: SettingsService) { }
@@ -31,5 +33,6 @@ export class AppSettingsService {
 
   public saveAppSettings(appSettings: AppSettings) {
     this.settingsService.set(AppSettingsService.GENERAL_SETTING_KEY, appSettings);
+    this.settingsChanged.next(appSettings);
   }
 }
