@@ -10,10 +10,10 @@
     <mat-tab label="General">
       <div class="tab-container">
         <mat-form-field>
-          <mat-select placeholder="Theme" >
-            <mat-option value="S">System default</mat-option>
-            <mat-option value="L">Light</mat-option>
-            <mat-option value="D">Dark</mat-option>
+          <mat-select placeholder="Theme" [(ngModel)]="settings.theme">
+            <mat-option value="system">System default</mat-option>
+            <mat-option value="light">Light</mat-option>
+            <mat-option value="dark">Dark</mat-option>
           </mat-select>
         </mat-form-field>
 

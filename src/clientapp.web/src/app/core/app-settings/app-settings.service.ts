@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { SettingsService } from 'ng-common';
 
+export type ThemeName = 'system' | 'light' | 'dark';
+
 export interface AppSettings {
   showNewReleasesNotifications: boolean;
+  theme: ThemeName;
 }
 
-const APP_SETTINGS_DEFAULTS = {
-  showNewReleasesNotifications: true
+const APP_SETTINGS_DEFAULTS: AppSettings = {
+  showNewReleasesNotifications: true,
+  theme: 'system'
 };
 
 @Injectable({

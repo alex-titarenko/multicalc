@@ -40,6 +40,6 @@ $dark-theme: mat-dark-theme(
 // that you are using.
 @include angular-material-theme($light-theme);
 
-.darkMode {
+.dark-mode {
   @include angular-material-color($dark-theme);
 }
