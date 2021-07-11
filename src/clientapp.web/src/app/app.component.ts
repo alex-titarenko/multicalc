@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { NgcCookieConsentService } from 'ngx-cookieconsent';
 import { Angulartics2GoogleGlobalSiteTag } from 'angulartics2/gst';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,6 +8,9 @@ import { ReleaseNotifierService, RouteMetaService } from 'ng-common';
 import { AppSettingsService } from 'app/core/app-settings/app-settings.service';
 import { UpdateService } from 'app/core/app-update/update.service';
 import { appConfig } from './core/configs/app.config';
+import { ThemingService } from './core/theming/theming.service';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -16,13 +19,20 @@ import { appConfig } from './core/configs/app.config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  private themingSubscription: Subscription;
+
   constructor (
     ccService: NgcCookieConsentService,
+    private updateService: UpdateService,
     private appSettingsService: AppSettingsService,
     private releaseNotifierService: ReleaseNotifierService,
     private routeMetaService: RouteMetaService,
     private angulartics: Angulartics2GoogleGlobalSiteTag,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private themingService: ThemingService,
+    private overlayContainer: OverlayContainer) { }
+
+  @HostBinding('class') public cssClass: string;
 
   public ngOnInit() {
     this.routeMetaService.init({ brandName: appConfig.name });
@@ -36,6 +46,15 @@ export class AppComponent implements OnInit {
     this.notifyNewRelease();
     this.setNoScrollForOpenedDialogs();
     this.setCloseDialogOnBack(this.dialog);
+
+    this.themingSubscription = this.themingService.theme.subscribe(theme => {
+      this.cssClass = theme;
+      this.applyThemeOnOverlays();
+    });
+  }
+
+  public ngOnDestroy() {
+    this.themingSubscription.unsubscribe();
   }
 
   private notifyNewRelease(): void {
@@ -84,5 +103,19 @@ export class AppComponent implements OnInit {
         lastDialog.close();
       }
     });
+  }
+
+  /**
+   * Apply the current theme on components with overlay (e.g. Dropdowns, Dialogs)
+   */
+   private applyThemeOnOverlays() {
+    // remove old theme class and add new theme class
+    // we're removing any css class that contains '-theme' string but your theme classes can follow any pattern
+    const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
+    const themeClassesToRemove = Array.from(this.themingService.themes);
+    if (themeClassesToRemove.length) {
+      overlayContainerClasses.remove(...themeClassesToRemove);
+    }
+    overlayContainerClasses.add(this.cssClass);
   }
 }
