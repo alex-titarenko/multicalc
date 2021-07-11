@@ -9,7 +9,6 @@ import { AppSettingsService } from 'app/core/app-settings/app-settings.service';
 import { UpdateService } from 'app/core/app-update/update.service';
 import { appConfig } from './core/configs/app.config';
 import { ThemingService } from './core/theming/theming.service';
-import { OverlayContainer } from '@angular/cdk/overlay';
 import { Subscription } from 'rxjs';
 
 
@@ -29,10 +28,7 @@ export class AppComponent implements OnInit {
     private routeMetaService: RouteMetaService,
     private angulartics: Angulartics2GoogleGlobalSiteTag,
     private dialog: MatDialog,
-    private themingService: ThemingService,
-    private overlayContainer: OverlayContainer) { }
-
-  @HostBinding('class') public cssClass: string;
+    private themingService: ThemingService) { }
 
   public ngOnInit() {
     this.routeMetaService.init({ brandName: appConfig.name });
@@ -47,10 +43,7 @@ export class AppComponent implements OnInit {
     this.setNoScrollForOpenedDialogs();
     this.setCloseDialogOnBack(this.dialog);
 
-    this.themingSubscription = this.themingService.theme.subscribe(theme => {
-      this.cssClass = theme;
-      this.applyThemeOnOverlays();
-    });
+    this.themingSubscription = this.themingService.theme.subscribe(theme => this.applyTheme(theme));
   }
 
   public ngOnDestroy() {
@@ -105,17 +98,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-  /**
-   * Apply the current theme on components with overlay (e.g. Dropdowns, Dialogs)
-   */
-   private applyThemeOnOverlays() {
-    // remove old theme class and add new theme class
-    // we're removing any css class that contains '-theme' string but your theme classes can follow any pattern
-    const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
-    const themeClassesToRemove = Array.from(this.themingService.themes);
-    if (themeClassesToRemove.length) {
-      overlayContainerClasses.remove(...themeClassesToRemove);
-    }
-    overlayContainerClasses.add(this.cssClass);
+  private applyTheme(theme: string) {
+    const bodyClasses = document.body.classList;
+      const themeClassesToRemove = Array.from(this.themingService.themes);
+      if (themeClassesToRemove.length) {
+        bodyClasses.remove(...themeClassesToRemove);
+      }
+      document.body.className = theme;
   }
 }

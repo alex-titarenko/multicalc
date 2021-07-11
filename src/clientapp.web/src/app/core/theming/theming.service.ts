@@ -12,26 +12,18 @@ export class ThemingService {
   public readonly themes: ReadonlyArray<ThemeClassName> = ['dark-theme', 'light-theme'];
   public readonly theme = new BehaviorSubject<ThemeClassName>('light-theme');
 
-  constructor(
-    private readonly ref: ApplicationRef,
-    private readonly appSettings: AppSettingsService) {
-
+  constructor(private readonly appSettings: AppSettingsService) {
+    // set current value
     this.setThemeClassName(this.appSettings.getAppSettings().theme, this.getPrefersDarkMode());
 
     // Watch for changes of the preference
     window.matchMedia(PrefersDarkModeQuery).addEventListener('change', e => {
       this.setThemeClassName(this.appSettings.getAppSettings().theme, e.matches);
-
-      // Trigger refresh of UI
-      this.ref.tick();
     });
 
+    // Watch for changes of the settings
     appSettings.settingsChanged.subscribe(appSettings => {
       this.setThemeClassName(appSettings.theme, this.getPrefersDarkMode());
-
-      // Trigger refresh of UI
-      //this.ref.tick();
-      //console.log('settings changed');
     });
   }
 
