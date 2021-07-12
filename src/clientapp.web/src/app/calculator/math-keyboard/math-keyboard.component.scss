@@ -16,7 +16,7 @@ $grid-gap: 10px;
     font-size: inherit;
 
     &.additional-button {
-      background: whitesmoke;
+      background: var(--alt-button-color);
     }
 
     &.small {
@@ -77,7 +77,7 @@ $grid-gap: 10px;
     height: 100%;
 
     .keyboard {
-      background: white;
+      background: var(--background-color);
       display: flex;
       position: absolute;
       top: 0;

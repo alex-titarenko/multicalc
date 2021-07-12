@@ -40,6 +40,20 @@ $dark-theme: mat-dark-theme(
 // that you are using.
 @include angular-material-theme($light-theme);
 
+:root {
+  --background-color: white;
+  --toolbar-color: white;
+  --alt-button-color: whitesmoke;
+
+  .dark-theme {
+    --background-color: #303030;
+    --toolbar-color: #383838;
+    --alt-button-color: #6f6f6f;
+  }
+}
+
 .dark-theme {
   @include angular-material-color($dark-theme);
 }
+
+

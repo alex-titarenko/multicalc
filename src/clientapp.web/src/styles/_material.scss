@@ -6,11 +6,11 @@ mat-sidenav-container {
 
 
 mat-sidenav-content {
-  background: white !important;
+  background: var(--background-color) !important;
 }
 
 mat-toolbar {
-  background: white !important;
+  background: var(--toolbar-color) !important;
   box-shadow: 0 8px 10px -5px rgba(0,0,0,.2);
   z-index: 2;
   padding: 12px 16px !important;
