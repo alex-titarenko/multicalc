@@ -100,10 +100,22 @@ export class AppComponent implements OnInit {
 
   private applyTheme(theme: string) {
     const bodyClasses = document.body.classList;
-      const themeClassesToRemove = Array.from(this.themingService.themes);
-      if (themeClassesToRemove.length) {
-        bodyClasses.remove(...themeClassesToRemove);
-      }
-      document.body.className = theme;
+    const themeClassesToRemove = Array.from(this.themingService.themes);
+    if (themeClassesToRemove.length) {
+      bodyClasses.remove(...themeClassesToRemove);
+    }
+    document.body.className = theme;
+
+    const themeColor = theme.startsWith('dark') ? '#383838' : 'white';
+    this.applyThemeColor(themeColor);
+  }
+
+  private applyThemeColor(color: string) {
+    // Theme color for Chrome, Firefox and Opera
+    const themeColor = document.getElementById('themeColor') as HTMLMetaElement;
+    themeColor.content = color;
+
+    // Theme color for iOS
+    document.body.style.backgroundColor = color;
   }
 }
