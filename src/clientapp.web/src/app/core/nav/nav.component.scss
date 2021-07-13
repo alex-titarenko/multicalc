@@ -206,17 +206,3 @@ $slope-main-grad: linear-gradient(150deg, $grad-start-color 15%, $grad-middle-co
   }
 }
 
-
-.section-shape {
-  bottom: -8px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-
-  img {
-    max-width: 100%;
-    min-width: 100%;
-    width: 100%;
-  }
-}
