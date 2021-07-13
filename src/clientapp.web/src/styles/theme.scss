@@ -42,11 +42,13 @@ $dark-theme: mat-dark-theme(
 
 :root {
   --background-color: white;
+  --text-color: black;
   --toolbar-color: white;
   --alt-button-color: whitesmoke;
 
   .dark-theme {
     --background-color: #303030;
+    --text-color: white;
     --toolbar-color: #383838;
     --alt-button-color: #6f6f6f;
   }
