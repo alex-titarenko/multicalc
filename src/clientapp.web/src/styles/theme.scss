@@ -47,6 +47,7 @@ $dark-theme: mat-dark-theme(
   --banner-background: linear-gradient(150deg, #00518c 15%, #2d95e0 70%, #2ca0f5 94%);
   --card-header-color: #f3f3f3;
   --alt-button-color: whitesmoke;
+  --usage-tip-button-color: #fdfafa;
 
   .dark-theme {
     --background-color: #303030;
@@ -55,6 +56,7 @@ $dark-theme: mat-dark-theme(
     --banner-background: linear-gradient(150deg, #494949 15%, #8b8b8b 70%, #969696 94%);
     --card-header-color: #5a5a5a;
     --alt-button-color: #6f6f6f;
+    --usage-tip-button-color: #5d5d5d;
   }
 }
 
