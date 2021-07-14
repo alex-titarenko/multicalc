@@ -44,12 +44,14 @@ $dark-theme: mat-dark-theme(
   --background-color: white;
   --text-color: black;
   --toolbar-color: white;
+  --banner-background: linear-gradient(150deg, #00518c 15%, #2d95e0 70%, #2ca0f5 94%);
   --alt-button-color: whitesmoke;
 
   .dark-theme {
     --background-color: #303030;
     --text-color: white;
     --toolbar-color: #383838;
+    --banner-background: linear-gradient(150deg, #494949 15%, #8b8b8b 70%, #969696 94%);
     --alt-button-color: #6f6f6f;
   }
 }

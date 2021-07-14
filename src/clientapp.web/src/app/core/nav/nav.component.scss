@@ -39,12 +39,7 @@ mat-icon {
 
 
 // Banner
-
-$grad-start-color: #00518c;
-$grad-middle-color: #2d95e0;
-$grad-end-color: #2ca0f5;
-
-$slope-main-grad: linear-gradient(150deg, $grad-start-color 15%, $grad-middle-color 70%, $grad-end-color 94%);
+$slope-main-grad: var(--banner-background);
 
 .section-circle {
   position: relative;
