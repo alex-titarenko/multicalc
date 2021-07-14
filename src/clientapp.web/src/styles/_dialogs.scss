@@ -39,6 +39,7 @@
           overflow-y: auto;
           margin: 0;
           padding: 24px;
+          background-color: var(--background-color);
         }
 
         mat-toolbar {
@@ -83,6 +84,7 @@
         overflow-y: auto;
         margin: 0;
         padding: 24px;
+        background-color: var(--background-color);
       }
 
       mat-toolbar {
