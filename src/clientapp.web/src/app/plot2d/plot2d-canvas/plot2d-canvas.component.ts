@@ -46,7 +46,7 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
   private readonly DefaultStepY: number = 60.0;
   private readonly DefaultXAxisScaleInterval: number = 1.0;
   private readonly DefaultYAxisScaleInterval: number = 1.0;
-  private readonly borderSize: number = 10;
+  private readonly borderSize: number = 1;
 
   @Input()
   public traces: Trace2D[] = [];
