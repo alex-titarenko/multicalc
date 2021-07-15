@@ -51,6 +51,7 @@ $dark-theme: mat-dark-theme(
   --card-header-color: #f3f3f3;
   --alt-button-color: whitesmoke;
   --usage-tip-button-color: #fdfafa;
+  --form-label-color: rgba(0, 0, 0, 0.54);
 
   .dark-theme {
     --background-color: #303030;
@@ -63,6 +64,7 @@ $dark-theme: mat-dark-theme(
     --card-header-color: #5a5a5a;
     --alt-button-color: #6f6f6f;
     --usage-tip-button-color: #5d5d5d;
+    --form-label-color: rgba(255, 255, 255, 0.7);
   }
 }
 

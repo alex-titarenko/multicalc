@@ -33,7 +33,7 @@
       color: rgba(0, 0, 0, 0.87);
 
       label {
-        color: rgba(0, 0, 0, 0.54);
+        color: var(--form-label-color);
         font-size: 13px;
       }
     }
