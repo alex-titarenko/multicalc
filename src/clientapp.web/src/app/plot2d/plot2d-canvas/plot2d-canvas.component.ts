@@ -52,13 +52,25 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
   public traces: Trace2D[] = [];
 
   @Input()
+  public isDarkMode: boolean = false;
+
+  @Input()
   public backgroundColor: string = 'whitesmoke';
+
+  @Input()
+  public backgroundColorDark: string = '#303030';
 
   @Input()
   public foregroundColor: string = 'dimgray';
 
   @Input()
+  public foregroundColorDark: string = 'dimgray';
+
+  @Input()
   public gridlinesColor: string = 'silver';
+
+  @Input()
+  public gridlinesColorDark: string = '#4C4C4C';
 
   @Input()
   public borderColor: string = 'dimgray';
@@ -74,6 +86,9 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
 
   @Input()
   public axesColor: string = 'darkgray';
+
+  @Input()
+  public axesColorDark: string = 'darkgray';
 
   @Input()
   public axesThickness: number = 1.5;
@@ -99,6 +114,21 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
   @Input()
   public dragMode: 'MarqueeZoom' | 'HandTool' = 'HandTool';
 
+  private get backgroundThemeColor() {
+    return this.isDarkMode ? this.backgroundColorDark : this.backgroundColor;
+  }
+
+  private get foregroundThemeColor() {
+    return this.isDarkMode ? this.foregroundColorDark : this.foregroundColor;
+  }
+
+  private get gridlinesThemeColor() {
+    return this.isDarkMode ? this.gridlinesColorDark : this.gridlinesColor;
+  }
+
+  private get axesThemeColor() {
+    return this.isDarkMode ? this.axesColorDark : this.axesColor;
+  }
 
   private lastPointerPosition: Point = { x: 0, y: 0 };
   private selectedRegionPoint1: Point = { x: 0, y: 0 };
@@ -382,7 +412,7 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
   }
 
   private renderPlotBackground(w: number, h: number): void {
-    this.context.fillStyle = this.backgroundColor;
+    this.context.fillStyle = this.backgroundThemeColor;
     this.context.fillRect(0, 0, w, h);
   }
 
@@ -396,7 +426,7 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
     if (this.gridlinesVisibility) {
       this.context.beginPath();
       this.context.lineWidth = 1;
-      this.context.strokeStyle = this.gridlinesColor;
+      this.context.strokeStyle = this.gridlinesThemeColor;
 
       for (let i: number = 0; i < visibleVertGridLines; i++) {
         const x: number = firstVisibleVertLine + i * this.dx;
@@ -455,7 +485,7 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
 
   private renderAxes(w: number, h: number, mx: number, my: number): void {
     this.context.beginPath();
-    this.context.strokeStyle = this.axesColor;
+    this.context.strokeStyle = this.axesThemeColor;
     this.context.lineWidth = this.axesThickness;
 
     if (this.axesVisibility && (((my + this.vertOffset) > this.borderSize) && ((my + this.vertOffset) < h - this.borderSize))) {
@@ -546,7 +576,7 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
   }
 
   private renderClearBorders(w: number, h: number): void {
-    this.context.fillStyle = this.backgroundColor;
+    this.context.fillStyle = this.backgroundThemeColor;
 
     this.context.fillRect(0, 0, this.borderSize, h); // Left border
     this.context.fillRect(this.borderSize, 0, w - this.borderSize, this.borderSize); // Top border
@@ -570,7 +600,7 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
       firstVisibleVertLine: number,
       visibleHorizGridLines: number,
       firstVisibleHorizLine: number): void {
-    this.context.fillStyle = this.foregroundColor;
+    this.context.fillStyle = this.foregroundThemeColor;
     this.context.direction = 'ltr';
     this.context.textBaseline = 'middle';
     this.context.font = this.getFontStyle(this.fontSize, this.typeface);
@@ -585,9 +615,9 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
       const x: number = firstVisibleVertLine + i * this.dx - textMetrics.width / 2;
       const y: number = h - this.borderSize - this.fontSize / 2 - 2;
 
-      this.context.fillStyle = this.backgroundColor;
+      this.context.fillStyle = this.backgroundThemeColor;
       this.context.fillRect(x, y - this.fontSize / 2, textMetrics.width, this.fontSize);
-      this.context.fillStyle = this.foregroundColor;
+      this.context.fillStyle = this.foregroundThemeColor;
       this.context.fillText(text, x, y);
     }
 
@@ -601,9 +631,9 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
       const x: number = this.borderSize + 2;
       const y: number = firstVisibleHorizLine + i * this.dy;
 
-      this.context.fillStyle = this.backgroundColor;
+      this.context.fillStyle = this.backgroundThemeColor;
       this.context.fillRect(x, y - this.fontSize / 2, textMetrics.width, this.fontSize);
-      this.context.fillStyle = this.foregroundColor;
+      this.context.fillStyle = this.foregroundThemeColor;
       this.context.fillText(text, x, y);
     }
   }

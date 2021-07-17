@@ -24,10 +24,15 @@
     <app-plot2d-canvas #plot
       [traces]="traces"
       [dragMode]="dragMode"
+      [isDarkMode]="themingService.theme.value === 'dark-theme'"
       [backgroundColor]="preferences.backgroundColor"
       [foregroundColor]="preferences.foregroundColor"
       [gridlinesColor]="preferences.gridlinesColor"
       [axesColor]="preferences.axesColor"
+      [backgroundColorDark]="preferences.backgroundColorDark"
+      [foregroundColorDark]="preferences.foregroundColorDark"
+      [gridlinesColorDark]="preferences.gridlinesColorDark"
+      [axesColorDark]="preferences.axesColorDark"
       [gridlinesVisibility]="preferences.gridlinesVisibility"
       [axesVisibility]="preferences.axesVisibility">
     </app-plot2d-canvas>
