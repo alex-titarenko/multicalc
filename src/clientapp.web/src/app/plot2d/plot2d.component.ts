@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SettingsService } from 'ng-common';
 
 import { BasePageComponent } from 'shared/base-page.component';
+import { ThemingService } from '../core/theming/theming.service';
 import { Trace2D } from './plot2d-canvas/trace2d.model';
 import { Plot2DPreferencesComponent } from './plot2d-preferences/plot2d-preferences.component';
 import { Plot2DPreferences, defaultPreferences } from './shared/plot2d-preferences.model';
@@ -48,7 +49,8 @@ export class Plot2DComponent extends BasePageComponent implements OnInit {
     elementRef: ElementRef,
     private dialog: MatDialog,
     private bottomSheet: MatBottomSheet,
-    private settingsService: SettingsService) {
+    private settingsService: SettingsService,
+    public themingService: ThemingService) {
     super(elementRef);
   }
 
