@@ -1,5 +1,5 @@
 import { ErrorHandler, Injectable, Injector } from '@angular/core';
-import { Angulartics2 } from 'angulartics2';
+import { AnalyticsService } from './analytics/analytics.service';
 
 @Injectable()
 export class GlobalErrorHandler extends ErrorHandler {
@@ -10,14 +10,10 @@ export class GlobalErrorHandler extends ErrorHandler {
   handleError(error: any): void {
     super.handleError(error);
 
-    const angulartics2 = this.injector.get(Angulartics2);
+    const analyticsService = this.injector.get(AnalyticsService);
 
-    if (angulartics2) {
-      const exception = {
-        fatal: true,
-        description: error.stack
-      };
-      angulartics2.exceptionTrack.next(exception);
+    if (analyticsService) {
+      analyticsService.trackException(error.stack, true);
     }
   }
 }

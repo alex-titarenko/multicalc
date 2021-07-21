@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { AppInstallerService } from 'ng-common';
-import { Angulartics2 } from 'angulartics2';
+import { AnalyticsService } from '../analytics/analytics.service';
 
 @Component({
   selector: 'app-nav',
@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
     public appInstaller: AppInstallerService,
-    private angulartics: Angulartics2) {
+    private analyticsService: AnalyticsService) {
     this.modules = [
       { name: 'Calculator', icon: 'talex:calculator', routerLink: '/calculator' },
       { name: 'Unit Converter', icon: 'talex:unit', routerLink: '/unit-converter' },
@@ -31,12 +31,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     this.appInstaller.appInstalled.subscribe(() => {
-      this.angulartics.eventTrack.next({
-         action: 'install_app',
-         properties: {
-          category: 'engagement'
-         }
-        });
+      this.analyticsService.trackEvent('app_install');
     });
   }
 

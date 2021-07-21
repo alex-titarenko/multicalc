@@ -1,10 +1,10 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { Angulartics2 } from 'angulartics2';
 
 import { SharingService } from 'ng-common';
 
 import { BasePageComponent } from 'shared/base-page.component';
+import { AnalyticsService } from '../core/analytics/analytics.service';
 import { FeedbackOptionsComponent } from './feedback-options/feedback-options.component';
 
 @Component({
@@ -18,7 +18,7 @@ export class HelpComponent extends BasePageComponent {
     elementRef: ElementRef,
     private sharingService: SharingService,
     private bottomSheet: MatBottomSheet,
-    private angulartics: Angulartics2) {
+    private analyticsService: AnalyticsService) {
     super(elementRef);
   }
 
@@ -26,12 +26,7 @@ export class HelpComponent extends BasePageComponent {
     const url = window.location.origin;
     this.sharingService.shareUrl(url);
 
-    this.angulartics.eventTrack.next({
-      action: 'share',
-      properties: {
-        category: 'engagement'
-      }
-    });
+    this.analyticsService.trackEvent('app_share');
   }
 
   public sendFeedback(): void {

@@ -1,6 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { NgcCookieConsentService } from 'ngx-cookieconsent';
-import { Angulartics2GoogleGlobalSiteTag } from 'angulartics2/gst';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ReleaseNotifierService, RouteMetaService } from 'ng-common';
@@ -10,6 +9,7 @@ import { UpdateService } from 'app/core/app-update/update.service';
 import { appConfig } from './core/configs/app.config';
 import { ThemingService } from './core/theming/theming.service';
 import { Subscription } from 'rxjs';
+import { AnalyticsService } from './core/analytics/analytics.service';
 
 
 @Component({
@@ -26,14 +26,14 @@ export class AppComponent implements OnInit {
     private appSettingsService: AppSettingsService,
     private releaseNotifierService: ReleaseNotifierService,
     private routeMetaService: RouteMetaService,
-    private angulartics: Angulartics2GoogleGlobalSiteTag,
+    private analyticsService: AnalyticsService,
     private dialog: MatDialog,
     private themingService: ThemingService) { }
 
   public ngOnInit() {
     this.routeMetaService.init({ brandName: appConfig.name });
-    this.angulartics.startTracking();
-    this.angulartics.setUserProperties({
+
+    this.analyticsService.setUserProperties({
       'display_mode': this.getDisplayMode(),
       'app_name': appConfig.name,
       'app_version': appConfig.version

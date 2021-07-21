@@ -4,7 +4,6 @@ import { RouterModule, RouteReuseStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { HammerModule } from '@angular/platform-browser';
 import { NgcCookieConsentModule } from 'ngx-cookieconsent';
-import { Angulartics2Module } from 'angulartics2';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 
@@ -14,7 +13,6 @@ import { GlobalErrorHandler } from './global-error-handler';
 import { CustomRouteReuseStrategy } from './custom-route-reuse-strategy';
 import { cookieConsentConfig } from './configs/cookie-consent.config';
 import { tooltipConfig } from './configs/tooltip.config';
-import { angularticsConfig } from './configs/angulartics.config';
 import { environment } from 'src/environments/environment';
 import { dialogConfig } from './configs/dialog.config';
 import { ExpressionEvaluatorService } from '../shared/expression-evaluator.service';
@@ -36,7 +34,6 @@ import { ExpressionEvaluatorService } from '../shared/expression-evaluator.servi
     MaterialModule,
     HammerModule,
     NgcCookieConsentModule.forRoot(cookieConsentConfig),
-    Angulartics2Module.forRoot(angularticsConfig),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   exports: [
