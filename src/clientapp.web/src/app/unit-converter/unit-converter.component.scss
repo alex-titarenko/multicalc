@@ -122,6 +122,10 @@
   button {
     font-size: 30px;
 
+    mat-icon {
+      vertical-align: text-top;
+    }
+
     &.additional-button {
       background: var(--alt-button-color);
     }

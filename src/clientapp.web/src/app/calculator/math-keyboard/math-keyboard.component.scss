@@ -15,6 +15,10 @@ $grid-gap: 10px;
   button {
     font-size: inherit;
 
+    mat-icon {
+      vertical-align: text-top;
+    }
+
     &.additional-button {
       background: var(--alt-button-color);
     }
