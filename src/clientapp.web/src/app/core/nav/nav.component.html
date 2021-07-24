@@ -32,7 +32,7 @@
 
 <mat-nav-list class="additional-menu">
   <a mat-list-item (click)="appInstaller.install()" *ngIf="appInstaller.canInstall">
-    <mat-icon>get_app</mat-icon>
+    <mat-icon svgIcon="get_app"></mat-icon>
     <span class="label">Install App</span>
   </a>
 
@@ -41,7 +41,7 @@
     [routerLinkActive]='["link-active"]'
     [routerLinkActiveOptions]='{ exact: true }'
     (click)="onItemClick()">
-    <mat-icon>settings</mat-icon>
+    <mat-icon svgIcon="settings"></mat-icon>
     <span>Settings</span>
   </a>
 
@@ -50,7 +50,7 @@
     [routerLinkActive]='["link-active"]'
     [routerLinkActiveOptions]='{ exact: false }'
     (click)="onItemClick()">
-    <mat-icon>contact_support</mat-icon>
+    <mat-icon svgIcon="contact_support"></mat-icon>
     <span>Help</span>
   </a>
 

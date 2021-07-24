@@ -1,36 +1,36 @@
 <div class="page-wrapper help-page-wrapper">
   <mat-toolbar>
-    <button mat-icon-button (click)="onMenuToggle()"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button (click)="onMenuToggle()"><mat-icon svgIcon="menu"></mat-icon></button>
     <h1>Help</h1>
     <span class="spacer"></span>
-    <button mat-icon-button matTooltip="Send Feedback" (click)="sendFeedback()"><mat-icon>feedback</mat-icon></button>
-    <button mat-icon-button matTooltip="Share" (click)="share()"><mat-icon>share</mat-icon></button>
+    <button mat-icon-button matTooltip="Send Feedback" (click)="sendFeedback()"><mat-icon svgIcon="feedback"></mat-icon></button>
+    <button mat-icon-button matTooltip="Share" (click)="share()"><mat-icon svgIcon="share"></mat-icon></button>
   </mat-toolbar>
 
   <div class="page-container help-page">
     <nav mat-tab-nav-bar>
       <a mat-tab-link routerLinkActive="active" routerLink="about" #about="routerLinkActive" [active]="about.isActive">
-        <mat-icon>info</mat-icon>
+        <mat-icon svgIcon="info"></mat-icon>
         <span class="tab-label">About</span>
       </a>
 
       <a mat-tab-link routerLinkActive="active" routerLink="terms" #terms="routerLinkActive" [active]="terms.isActive">
-        <mat-icon>playlist_add_check</mat-icon>
+        <mat-icon svgIcon="playlist_add_check"></mat-icon>
         <span class="tab-label">Terms of Use</span>
       </a>
 
       <a mat-tab-link routerLinkActive="active" routerLink="privacy-policy" #privacy="routerLinkActive" [active]="privacy.isActive">
-        <mat-icon>lock</mat-icon>
+        <mat-icon svgIcon="lock"></mat-icon>
         <span class="tab-label">Privacy Policy</span>
       </a>
 
       <a mat-tab-link routerLinkActive="active" routerLink="third-party-licenses" #thirdparty="routerLinkActive" [active]="thirdparty.isActive">
-        <mat-icon>people</mat-icon>
+        <mat-icon svgIcon="people"></mat-icon>
         <span class="tab-label">Third Party Licenses</span>
       </a>
 
       <a mat-tab-link routerLinkActive="active" routerLink="release-notes" #releaseNotes="routerLinkActive" [active]="releaseNotes.isActive">
-        <mat-icon>new_releases</mat-icon>
+        <mat-icon svgIcon="new_releases"></mat-icon>
         <span class="tab-label">Release Notes</span>
       </a>
     </nav>

@@ -2,6 +2,6 @@
   <a *ngFor="let trace of traces" mat-list-item>
     <mat-checkbox color="primary" class="display-box" [(ngModel)]="trace.display" (change)="traceVisibilityChanged(trace)"></mat-checkbox>
     <span [style.color]="trace.color" class="spacer expression-box" (click)="editTrace(trace)">{{ trace.expression }}</span>
-    <button mat-button matTooltip="Delete trace" (click)="deleteTrace(trace)"><mat-icon>delete</mat-icon></button>
+    <button mat-button matTooltip="Delete trace" (click)="deleteTrace(trace)"><mat-icon svgIcon="delete"></mat-icon></button>
   </a>
 </mat-nav-list>

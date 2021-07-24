@@ -1,6 +1,8 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { NgcCookieConsentService } from 'ngx-cookieconsent';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { ReleaseNotifierService, RouteMetaService } from 'ng-common';
 
@@ -22,13 +24,17 @@ export class AppComponent implements OnInit {
 
   constructor (
     ccService: NgcCookieConsentService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
     private updateService: UpdateService,
     private appSettingsService: AppSettingsService,
     private releaseNotifierService: ReleaseNotifierService,
     private routeMetaService: RouteMetaService,
     private analyticsService: AnalyticsService,
     private dialog: MatDialog,
-    private themingService: ThemingService) { }
+    private themingService: ThemingService) {
+      this.registerSvgIcons(matIconRegistry);
+    }
 
   public ngOnInit() {
     this.routeMetaService.init({ brandName: appConfig.name });
@@ -48,6 +54,40 @@ export class AppComponent implements OnInit {
 
   public ngOnDestroy() {
     this.themingSubscription.unsubscribe();
+  }
+
+  private registerSvgIcons(matIconRegistry: MatIconRegistry): void {
+
+    // get new icons here: https://fonts.google.com/icons?selected=Material+Icons
+    const icons = [
+      'add',
+      'arrow_back',
+      'backspace',
+      'contact_support',
+      'delete',
+      'feedback',
+      'format_list_bulleted',
+      'get_app',
+      'history',
+      'info',
+      'lock',
+      'menu',
+      'more_vert',
+      'new_releases',
+      'pan_tool',
+      'people',
+      'playlist_add_check',
+      'settings',
+      'share',
+      'swap_vert',
+      'tune',
+      'view_module',
+      'zoom_in'
+    ];
+
+    for (const icon of icons) {
+      matIconRegistry.addSvgIcon(icon, this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/images/icons/${icon}.svg`))
+    }
   }
 
   private notifyNewRelease(): void {

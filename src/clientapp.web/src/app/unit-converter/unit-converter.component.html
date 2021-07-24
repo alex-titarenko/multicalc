@@ -1,9 +1,9 @@
 <div class="page-wrapper">
   <mat-toolbar>
-    <button mat-icon-button aria-label="Menu" (click)="onMenuToggle()"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button aria-label="Menu" (click)="onMenuToggle()"><mat-icon svgIcon="menu"></mat-icon></button>
     <h1>Unit Converter</h1>
     <span class="spacer"></span>
-    <button mat-icon-button matTooltip="Swap units" aria-label="Swap units" (click)="swap()"><mat-icon>swap_vert</mat-icon></button>
+    <button mat-icon-button matTooltip="Swap units" aria-label="Swap units" (click)="swap()"><mat-icon svgIcon="swap_vert"></mat-icon></button>
   </mat-toolbar>
 
   <div class="page-container unit-converter-page">
@@ -48,7 +48,7 @@
         <button mat-raised-button talexClickable (elClick)="input('5')">5</button>
         <button mat-raised-button talexClickable (elClick)="input('6')">6</button>
         <button mat-raised-button talexClickable (elClick)="backspace()" matTooltip="Backspace" aria-label="Backspace" class="additional-button">
-          <mat-icon>backspace</mat-icon>
+          <mat-icon svgIcon="backspace"></mat-icon>
         </button>
 
         <button mat-raised-button talexClickable (elClick)="input('1')">1</button>

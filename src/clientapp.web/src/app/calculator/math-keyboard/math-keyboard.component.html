@@ -16,7 +16,7 @@
       <button mat-raised-button talexClickable class="additional-button" disabled matTooltip="Insert variable">var</button>
       <button mat-raised-button talexClickable (elClick)="emitClear()" class="additional-button" matTooltip="Clear">c</button>
       <button mat-raised-button talexClickable (elClick)="emitBackspace()" (elPress)="emitClear()" class="additional-button" matTooltip="Backspace">
-        <mat-icon>backspace</mat-icon>
+        <mat-icon svgIcon="backspace"></mat-icon>
       </button>
 
       <button mat-raised-button talexClickable (elClick)="emitInput('7')">7</button>
