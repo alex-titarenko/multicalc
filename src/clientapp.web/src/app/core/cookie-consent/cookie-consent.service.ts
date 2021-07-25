@@ -14,8 +14,7 @@ export class CookieConsentService {
       return;
     }
 
-    const snack = this.snackbar.openFromComponent(ConsentText, {});
-
+    const snack = this.snackbar.openFromComponent(ConsentText);
 
     snack
       .afterDismissed()

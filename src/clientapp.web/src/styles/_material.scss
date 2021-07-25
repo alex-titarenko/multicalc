@@ -32,6 +32,7 @@ mat-bottom-sheet-container {
 snack-bar-container {
   margin: 24px !important;
   margin-bottom: max(24px, env(safe-area-inset-bottom)) !important;
+  max-width: unset !important;
 }
 
 .mat-slider-wrapper {
