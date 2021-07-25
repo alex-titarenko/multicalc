@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, RouteReuseStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { HammerModule } from '@angular/platform-browser';
-import { NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 
@@ -11,15 +10,16 @@ import { MaterialModule } from 'shared/material.module';
 import { NavComponent } from './nav/nav.component';
 import { GlobalErrorHandler } from './global-error-handler';
 import { CustomRouteReuseStrategy } from './custom-route-reuse-strategy';
-import { cookieConsentConfig } from './configs/cookie-consent.config';
 import { tooltipConfig } from './configs/tooltip.config';
 import { environment } from 'src/environments/environment';
 import { dialogConfig } from './configs/dialog.config';
 import { ExpressionEvaluatorService } from '../shared/expression-evaluator.service';
+import { ConsentText } from './cookie-consent/consent-text.component';
 
 @NgModule({
   declarations: [
-    NavComponent
+    NavComponent,
+    ConsentText
   ],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
@@ -33,7 +33,6 @@ import { ExpressionEvaluatorService } from '../shared/expression-evaluator.servi
     RouterModule,
     MaterialModule,
     HammerModule,
-    NgcCookieConsentModule.forRoot(cookieConsentConfig),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   exports: [

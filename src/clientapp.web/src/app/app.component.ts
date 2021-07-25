@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { NgcCookieConsentService } from 'ngx-cookieconsent';
+import { CookieConsentService } from './core/cookie-consent/cookie-consent.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   private themingSubscription: Subscription;
 
   constructor (
-    ccService: NgcCookieConsentService,
+    ccService: CookieConsentService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     private updateService: UpdateService,

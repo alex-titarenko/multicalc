@@ -36,21 +36,6 @@
 
     gtag('config', 'G-7K4P5W31HP');
   </script>
-
-  <!-- Windows Store App customization -->
-  <script>
-    (function() {
-      "strict";
-
-      if (window.Windows) {
-        let currentView = Windows.UI.ViewManagement.ApplicationView.getForCurrentView();
-        let titleBar = currentView.titleBar;
-        let themeColor = Windows.UI.ColorHelper.fromArgb(1, 0, 90, 156);
-        titleBar.backgroundColor = themeColor;
-        titleBar.buttonBackgroundColor = themeColor;
-      }
-    })();
-  </script>
 </head>
 <body>
   <app-root>
