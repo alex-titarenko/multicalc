@@ -60,7 +60,7 @@ const routes: Routes = [
     PageNotFoundComponent,
   ],
   imports: [
-    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(routes),
     MatButtonModule,
   ],
   exports: [
