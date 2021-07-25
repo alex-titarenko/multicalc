@@ -127,5 +127,15 @@ export const releaseNotes: ReleaseInfo[] = [
     notes: [
       'Update style for Apple devices',
     ]
+  },
+  {
+    version: '1.4.0',
+    releaseDate: new Date('7/25/2021'),
+    description: 'Bug fixes and dark mode',
+    notes: [
+      'Dark mode with automatic switching is finally arrived',
+      'Update cookie consent styles',
+      'Fix icons flickering on application startup'
+    ]
   }
 ];
