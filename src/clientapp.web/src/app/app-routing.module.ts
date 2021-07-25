@@ -60,7 +60,7 @@ const routes: Routes = [
     PageNotFoundComponent,
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
     MatButtonModule,
   ],
   exports: [
