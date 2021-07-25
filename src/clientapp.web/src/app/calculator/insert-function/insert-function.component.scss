@@ -22,7 +22,7 @@
 .function-card {
   cursor: pointer;
   width: calc(100% - 35px);
-  height: calc(100% - 35px);
+  min-height: calc(100% - 35px);
 
   .function-card-header {
     padding-top: 16px;
@@ -34,6 +34,8 @@
 }
 
 .func-signature {
+  display: flex;
+  flex-wrap: wrap;
   margin: 3px 0;
 
   .func-name {
