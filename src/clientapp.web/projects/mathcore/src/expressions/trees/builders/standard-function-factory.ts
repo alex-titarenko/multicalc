@@ -32,9 +32,7 @@ export class StandardFunctionFactory<T> implements FunctionFactory<T>, Functions
     }
 
     this.processingClosedVariables(signature, args);
-    const obj = Object.create(targetFunction.functionType.prototype);
-
-    const func = <Expression<T>>obj.constructor.call(obj, ...args);
+    const func = <Expression<T>>new targetFunction.functionType.prototype.constructor(...args);
 
     if (options !== undefined && func instanceof TrigonometricFunctionExpression) {
       func.angleMode = options.angleMode;

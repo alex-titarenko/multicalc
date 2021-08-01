@@ -23,9 +23,7 @@ export class ConstantFlyweightFactory<T> implements ConstantFactory<T> {
       constant = this.constantsCache[constantName];
 
       if (constant === undefined) {
-        const obj = Object.create(constantClass.prototype);
-        constant = <ConstantExpression<T>>obj.constructor.call(obj);
-
+        constant = <ConstantExpression<T>>new constantClass.prototype.constructor();
         this.constantsCache[constantName] = constant;
       }
     }
