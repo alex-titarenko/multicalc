@@ -44,7 +44,7 @@ class QuantityViewModel {
   templateUrl: './unit-converter.component.html',
   styleUrls: ['./unit-converter.component.scss']
 })
-export class UnitConverterComponent extends BasePageComponent implements OnInit {
+export class UnitConverterComponent extends BasePageComponent {
   readonly MaxInputLength: number = 29;
 
   private _sourceValue: string = null;
@@ -68,7 +68,7 @@ export class UnitConverterComponent extends BasePageComponent implements OnInit 
     this.targetQuantity = this.quantities.find((value, index, arr) => value.quantity === UnitConverter.Length);
   }
 
-  public ngOnInit() {
+  public ngAfterViewInit() {
     removeLoader();
   }
 

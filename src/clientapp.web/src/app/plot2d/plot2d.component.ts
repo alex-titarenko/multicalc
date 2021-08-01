@@ -57,7 +57,9 @@ export class Plot2DComponent extends BasePageComponent implements OnInit {
 
   public ngOnInit() {
     this.preferences = this.settingsService.get<Plot2DPreferences>(Plot2DComponent.settingsKey, defaultPreferences);
+  }
 
+  public ngAfterViewInit() {
     removeLoader();
   }
 

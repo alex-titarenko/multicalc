@@ -14,7 +14,7 @@ import { FeedbackOptionsComponent } from './feedback-options/feedback-options.co
   styleUrls: ['./help.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HelpComponent extends BasePageComponent implements OnInit {
+export class HelpComponent extends BasePageComponent {
   constructor(
     elementRef: ElementRef,
     private sharingService: SharingService,
@@ -23,7 +23,7 @@ export class HelpComponent extends BasePageComponent implements OnInit {
     super(elementRef);
   }
 
-  public ngOnInit() {
+  public ngAfterViewInit() {
     removeLoader();
   }
 

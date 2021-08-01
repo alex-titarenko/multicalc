@@ -21,7 +21,9 @@ export class AppSettingsComponent extends BasePageComponent implements OnInit, D
   ngOnInit() {
     this.settings = this.appSettingsService.getAppSettings();
     this.settingsDiffer = this.keyValueDiffers.find(this.settings).create();
+  }
 
+  public ngAfterViewInit() {
     removeLoader();
   }
 
