@@ -1,3 +1,5 @@
 export function removeLoader() {
-  document.getElementById('preloader')?.remove();
+  setTimeout(() => {
+    document.getElementById('preloader')?.remove();
+  }, 10);
 }
