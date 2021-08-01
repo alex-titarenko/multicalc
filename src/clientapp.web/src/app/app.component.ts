@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     this.setNoScrollForOpenedDialogs();
     this.setCloseDialogOnBack(this.dialog);
 
-    //this.themingSubscription = this.themingService.theme.subscribe(theme => this.applyTheme(theme));
+    this.themingSubscription = this.themingService.theme.subscribe(theme => this.applyTheme(theme));
   }
 
   public ngOnDestroy() {
