@@ -1,10 +1,11 @@
-import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 
 import { SharingService } from 'ng-common';
 
 import { BasePageComponent } from 'shared/base-page.component';
 import { AnalyticsService } from '../core/analytics/analytics.service';
+import { removeLoader } from '../core/loader/loader.helper';
 import { FeedbackOptionsComponent } from './feedback-options/feedback-options.component';
 
 @Component({
@@ -13,13 +14,17 @@ import { FeedbackOptionsComponent } from './feedback-options/feedback-options.co
   styleUrls: ['./help.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HelpComponent extends BasePageComponent {
+export class HelpComponent extends BasePageComponent implements OnInit {
   constructor(
     elementRef: ElementRef,
     private sharingService: SharingService,
     private bottomSheet: MatBottomSheet,
     private analyticsService: AnalyticsService) {
     super(elementRef);
+  }
+
+  public ngOnInit() {
+    removeLoader();
   }
 
   public share(): void {

@@ -1,10 +1,11 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { BasePageComponent } from 'shared/base-page.component';
 import { Decimal as DecimalJs } from 'decimal.js-light';
 import { Quantity } from 'mathcore/unit-conversion/quantities/quantity';
 import { Unit } from 'mathcore/unit-conversion/units/unit';
 import { UnitConverter } from 'mathcore/unit-conversion/unit-converter';
 import { quantityAttribute } from 'mathcore/unit-conversion/quantities/annotation/quantity.attribute';
+import { removeLoader } from '../core/loader/loader.helper';
 
 interface ConverterResult {
   unit: string;
@@ -43,7 +44,7 @@ class QuantityViewModel {
   templateUrl: './unit-converter.component.html',
   styleUrls: ['./unit-converter.component.scss']
 })
-export class UnitConverterComponent extends BasePageComponent {
+export class UnitConverterComponent extends BasePageComponent implements OnInit {
   readonly MaxInputLength: number = 29;
 
   private _sourceValue: string = null;
@@ -65,6 +66,10 @@ export class UnitConverterComponent extends BasePageComponent {
 
     this.quantities = UnitConverter.quantities.map((value, index, arr) => new QuantityViewModel(value, () => { this.convert(); }));
     this.targetQuantity = this.quantities.find((value, index, arr) => value.quantity === UnitConverter.Length);
+  }
+
+  public ngOnInit() {
+    removeLoader();
   }
 
   public clear() {
