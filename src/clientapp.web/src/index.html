@@ -154,48 +154,49 @@
       }
     </style>
 
+    <script>
+      const targetNode = document.getElementsByTagName('app-root')[0];
+      const config = { attributes: false, childList: true, subtree: true };
+
+      const callback = (mutationsList, observer) => {
+        observer.disconnect();
+
+        setTimeout(() => {
+          document.getElementById('preloader')?.remove();
+        }, 600);
+      };
+
+      const observer = new MutationObserver(callback);
+      observer.observe(targetNode, config);
+    </script>
+    <script>
+      const getPrefersDarkMode = () =>
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      const isDarkMode = () => {
+        const settings = JSON.parse(localStorage.getItem('settings:app') ?? '{}');
+        const storedTheme = settings.theme ?? 'system';
+
+        const darkMode =
+          settings.theme === 'dark' ||
+          settings.theme === 'system' && getPrefersDarkMode();
+
+        return darkMode;
+      }
+
+      if (isDarkMode()) {
+        const darkBackground = '#383838';
+        const preloader = document.getElementById('preloader');
+        preloader.style.backgroundColor = darkBackground;
+        const themeColor = document.getElementById('themeColor');
+        themeColor.content = darkBackground;
+        document.body.style.backgroundColor = darkBackground;
+      }
+    </script>
+
     <div id="loader"></div>
   </div>
-
-  <script>
-    const targetNode = document.getElementsByTagName('app-root')[0];
-    const config = { attributes: false, childList: true, subtree: true };
-
-    const callback = (mutationsList, observer) => {
-      observer.disconnect();
-
-      setTimeout(() => {
-        document.getElementById('preloader')?.remove();
-      }, 700);
-    };
-
-    const observer = new MutationObserver(callback);
-    observer.observe(targetNode, config);
-  </script>
-  <script>
-    const getPrefersDarkMode = () =>
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    const isDarkMode = () => {
-      const settings = JSON.parse(localStorage.getItem('settings:app') ?? '{}');
-      const storedTheme = settings.theme ?? 'system';
-
-      const darkMode =
-        settings.theme === 'dark' ||
-        settings.theme === 'system' && getPrefersDarkMode();
-
-      return darkMode;
-    }
-
-    if (isDarkMode()) {
-      const darkBackground = '#303030';
-      const preloader = document.getElementById('preloader');
-      preloader.style.backgroundColor = darkBackground;
-      const themeColor = document.getElementById('themeColor');
-      themeColor.content = darkBackground;
-    }
-  </script>
 
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
