@@ -71,7 +71,9 @@ export class CalculatorComponent extends BasePageComponent implements OnInit, Do
       .subscribe((state: BreakpointState) => {
         this.keyboardMode = state.matches ? KeyboardMode.Compact : KeyboardMode.Full;
       });
+  }
 
+  public ngAfterViewInit() {
     removeLoader();
   }
 
