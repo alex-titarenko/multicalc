@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="theme-color" content="" id="themeColor">
+  <meta name="theme-color" content="white" id="themeColor">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -36,10 +36,21 @@
 
     gtag('config', 'G-7K4P5W31HP');
   </script>
-</head>
-<body>
-  <app-root>
-  </app-root>
+
+  <style>
+    html, body {
+      height: 100%;
+      min-height: 350px;
+      min-width: 200px;
+    }
+
+    @media all and (display-mode: standalone) {
+      html, body {
+        /* Required for iOS */
+        height: 100vh;
+      }
+    }
+  </style>
 
   <style>
     body {
@@ -126,8 +137,28 @@
       }
     }
   </style>
+</head>
+<body>
+  <app-root>
+  </app-root>
 
   <div id="preloader"><div id="loader"></div></div>
+
+  <script>
+    const targetNode = document.getElementsByTagName('app-root')[0];
+    const config = { attributes: false, childList: true, subtree: true };
+
+    const callback = (mutationsList, observer) => {
+      observer.disconnect();
+
+      setTimeout(() => {
+        document.getElementById('preloader')?.remove();
+      }, 300);
+    };
+
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+  </script>
 
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>

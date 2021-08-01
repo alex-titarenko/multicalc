@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { SettingsService } from 'ng-common';
 
 import { BasePageComponent } from 'shared/base-page.component';
-import { removeLoader } from '../core/loader/loader.helper';
 import { ThemingService } from '../core/theming/theming.service';
 import { Trace2D } from './plot2d-canvas/trace2d.model';
 import { Plot2DPreferencesComponent } from './plot2d-preferences/plot2d-preferences.component';
@@ -57,10 +56,6 @@ export class Plot2DComponent extends BasePageComponent implements OnInit {
 
   public ngOnInit() {
     this.preferences = this.settingsService.get<Plot2DPreferences>(Plot2DComponent.settingsKey, defaultPreferences);
-  }
-
-  public ngAfterViewInit() {
-    removeLoader();
   }
 
   public addTrace(): void {

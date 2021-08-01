@@ -1,7 +1,6 @@
 import { Component, OnInit, DoCheck, KeyValueDiffers } from '@angular/core';
 import { BasePageComponent } from 'shared/base-page.component';
 import { AppSettingsService, AppSettings } from 'app/core/app-settings/app-settings.service';
-import { removeLoader } from '../core/loader/loader.helper';
 
 @Component({
   selector: 'app-settings',
@@ -21,10 +20,6 @@ export class AppSettingsComponent extends BasePageComponent implements OnInit, D
   ngOnInit() {
     this.settings = this.appSettingsService.getAppSettings();
     this.settingsDiffer = this.keyValueDiffers.find(this.settings).create();
-  }
-
-  public ngAfterViewInit() {
-    removeLoader();
   }
 
   ngDoCheck() {

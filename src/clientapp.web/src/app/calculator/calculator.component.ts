@@ -18,7 +18,6 @@ import { HistoryItem, HistoryData, historyFromJson } from './shared/history-data
 import { Expression } from './shared/expression.model';
 import { ExpressionInputComponent } from './expression-input/expression-input.component';
 import { CalculatorHelpComponent } from './calculator-help/calculator-help.component';
-import { removeLoader } from '../core/loader/loader.helper';
 
 @Component({
   selector: 'app-calculator-component',
@@ -71,10 +70,6 @@ export class CalculatorComponent extends BasePageComponent implements OnInit, Do
       .subscribe((state: BreakpointState) => {
         this.keyboardMode = state.matches ? KeyboardMode.Compact : KeyboardMode.Full;
       });
-  }
-
-  public ngAfterViewInit() {
-    removeLoader();
   }
 
   public ngDoCheck() {
