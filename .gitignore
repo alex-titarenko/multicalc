@@ -160,3 +160,6 @@ Thumbs.db
 # JavaScript
 *.js
 *.map
+
+# Angular
+.angular/

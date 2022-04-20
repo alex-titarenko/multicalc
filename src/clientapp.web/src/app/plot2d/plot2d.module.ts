@@ -13,25 +13,20 @@ import { MathExpressionValidator } from './shared/math-expression.validator';
 import { TraceListComponent } from './trace-list/trace-list.component';
 
 @NgModule({
-  declarations: [
-    Plot2DComponent,
-    Plot2DCanvasComponent,
-    Plot2DPreferencesComponent,
-    TraceEditorComponent,
-    MathExpressionValidator,
-    TraceListComponent,
-  ],
-  entryComponents: [
-    Plot2DPreferencesComponent,
-    TraceEditorComponent,
-    TraceListComponent,
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    MaterialModule,
-    ColorPickerModule,
-    NgCommonModule
-  ]
+    declarations: [
+        Plot2DComponent,
+        Plot2DCanvasComponent,
+        Plot2DPreferencesComponent,
+        TraceEditorComponent,
+        MathExpressionValidator,
+        TraceListComponent,
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        MaterialModule,
+        ColorPickerModule,
+        NgCommonModule
+    ]
 })
 export class Plot2DModule { }

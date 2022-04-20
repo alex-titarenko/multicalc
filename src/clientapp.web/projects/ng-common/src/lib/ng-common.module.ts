@@ -10,27 +10,24 @@ import { FitChildDirective } from './fit-child/fit-child.directive';
 import { ClickableDirective } from './clickable/clickable.directive';
 
 @NgModule({
-  declarations: [
-    NumberInputDirective,
-    FitTextDirective,
-    FitChildrenDirective,
-    FitChildDirective,
-    ClickableDirective,
-    ConfirmationMessageDialogComponent,
-  ],
-  entryComponents: [
-    ConfirmationMessageDialogComponent
-  ],
-  imports: [
-    A11yModule,
-    MatButtonModule,
-  ],
-  exports: [
-    NumberInputDirective,
-    FitTextDirective,
-    FitChildrenDirective,
-    FitChildDirective,
-    ClickableDirective,
-  ],
+    declarations: [
+        NumberInputDirective,
+        FitTextDirective,
+        FitChildrenDirective,
+        FitChildDirective,
+        ClickableDirective,
+        ConfirmationMessageDialogComponent,
+    ],
+    imports: [
+        A11yModule,
+        MatButtonModule,
+    ],
+    exports: [
+        NumberInputDirective,
+        FitTextDirective,
+        FitChildrenDirective,
+        FitChildDirective,
+        ClickableDirective,
+    ]
 })
 export class NgCommonModule { }

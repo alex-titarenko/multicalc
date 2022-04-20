@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ReleaseInfo, releaseNotes } from 'root/release-notes';
+import { ReleaseInfo, releaseNotes } from 'release-notes';
 import { MatAccordion } from '@angular/material/expansion';
 
 @Component({

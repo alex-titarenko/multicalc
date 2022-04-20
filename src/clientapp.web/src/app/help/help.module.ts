@@ -12,22 +12,19 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { FeedbackOptionsComponent } from './feedback-options/feedback-options.component';
 
 @NgModule({
-  declarations: [
-    HelpComponent,
-    TermsOfUseComponent,
-    ThirdPartyLicensesComponent,
-    AboutComponent,
-    ReleaseNotesComponent,
-    FeedbackOptionsComponent,
-    PrivacyPolicyComponent
-  ],
-  entryComponents: [
-    FeedbackOptionsComponent,
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    HelpRoutingModule
-  ],
+    declarations: [
+        HelpComponent,
+        TermsOfUseComponent,
+        ThirdPartyLicensesComponent,
+        AboutComponent,
+        ReleaseNotesComponent,
+        FeedbackOptionsComponent,
+        PrivacyPolicyComponent
+    ],
+    imports: [
+        CommonModule,
+        MaterialModule,
+        HelpRoutingModule
+    ]
 })
 export class HelpModule { }

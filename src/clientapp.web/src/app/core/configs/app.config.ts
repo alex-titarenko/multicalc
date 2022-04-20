@@ -1,4 +1,4 @@
-import packageJson from 'root/package.json';
+import packageJson from 'package.json';
 
 export const appConfig = {
   get name() { return packageJson['productName']; },

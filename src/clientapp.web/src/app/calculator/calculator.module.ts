@@ -18,32 +18,24 @@ import { ExtendedInputComponent } from './extended-input/extended-input.componen
 import { CalculatorHelpComponent } from './calculator-help/calculator-help.component';
 
 @NgModule({
-  declarations: [
-    CalculatorComponent,
-    DefineVariableComponent,
-    InsertFunctionComponent,
-    HistoryComponent,
-    CalculatorPreferencesComponent,
-    ExpressionInputComponent,
-    MathTokenPipe,
-    MathResultPipe,
-    MathKeyboardComponent,
-    ExtendedInputComponent,
-    CalculatorHelpComponent,
-  ],
-  entryComponents: [
-    DefineVariableComponent,
-    InsertFunctionComponent,
-    HistoryComponent,
-    CalculatorPreferencesComponent,
-    ExtendedInputComponent,
-    CalculatorHelpComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    MaterialModule,
-    NgCommonModule
-  ]
+    declarations: [
+        CalculatorComponent,
+        DefineVariableComponent,
+        InsertFunctionComponent,
+        HistoryComponent,
+        CalculatorPreferencesComponent,
+        ExpressionInputComponent,
+        MathTokenPipe,
+        MathResultPipe,
+        MathKeyboardComponent,
+        ExtendedInputComponent,
+        CalculatorHelpComponent,
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        MaterialModule,
+        NgCommonModule
+    ]
 })
 export class CalculatorModule { }

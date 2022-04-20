@@ -20,9 +20,6 @@
       "dom"
     ],
     "paths": {
-      "root/*": [
-        "*"
-      ],
       "shared/*": [
         "src/app/shared/*"
       ],

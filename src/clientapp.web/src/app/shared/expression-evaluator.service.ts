@@ -7,7 +7,7 @@ import functions from 'mathcore/expressions/trees/functions';
 import { ExpressionTreeBuilderOptions } from 'mathcore/expressions/trees/builders/expression-tree-builder-options';
 import { FunctionMetadata } from 'mathcore/expressions/trees/metadata/function-metadata';
 import { FunctionsMetadataProvider } from 'mathcore/expressions/trees/metadata/functions-metadata.provider';
-import { ParametricFunctionCreator } from 'root/projects/mathcore/src/expressions/trees/builders/parametric-function-creator';
+import { ParametricFunctionCreator } from 'projects/mathcore/src/expressions/trees/builders/parametric-function-creator';
 
 @Injectable()
 export class ExpressionEvaluatorService {
