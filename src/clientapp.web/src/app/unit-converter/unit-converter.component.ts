@@ -118,19 +118,35 @@ export class UnitConverterComponent extends BasePageComponent {
   }
 
   protected onKeyPress(event: KeyboardEvent) {
+    var handled = false;
+
     if ((event.key >= '0' && event.key <= '9') || event.key === '.') {
       this.input(event.key);
+      handled = true;
     } else if (event.key === '-') {
       this.changeSign();
+      handled = true;
+    }
+
+    if (handled) {
+      event.preventDefault();
     }
   }
 
   protected onKeyDown(event: KeyboardEvent) {
+    var handled = false;
+
     if (event.key.toUpperCase() === 'BACKSPACE') {
       this.backspace();
-      event.preventDefault();
+      handled = true;
+
     } else if (event.key.toUpperCase() === 'DELETE') {
       this.clear();
+      handled = true;
+    }
+
+    if (handled) {
+      event.preventDefault();
     }
   }
 

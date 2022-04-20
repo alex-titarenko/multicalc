@@ -84,45 +84,55 @@ export class ExpressionInputComponent implements OnInit {
   }
 
   public onKeyDown(event: KeyboardEvent): void {
+    var handled = false;
+
     switch (event.key) {
       case 'ArrowLeft':
         this.moveCaretLeft();
+        handled = true;
         break;
 
       case 'ArrowRight':
         this.moveCaretRight();
+        handled = true;
         break;
 
       case 'Home':
         this.moveCaretToStart();
+        handled = true;
         break;
 
       case 'End':
         this.moveCaretToEnd();
+        handled = true;
         break;
 
       case 'Enter':
       case '=':
         this.evaluateExpr();
+        handled = true;
         break;
 
       case 'Backspace':
         this.backspace();
+        handled = true;
         break;
 
       case 'Delete':
         this.delete();
+        handled = true;
         break;
 
       default:
         if (this.isValidExpressionKey(event.key)) {
           this.insertToken(this.caretPosition, event.key);
+          handled = true;
         }
     }
 
     event.stopPropagation();
 
-    if (event.key === 'Backspace') {
+    if (handled) {
       event.preventDefault();
     }
   }

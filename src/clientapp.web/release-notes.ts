@@ -137,5 +137,13 @@ export const releaseNotes: ReleaseInfo[] = [
       'Update cookie consent styles',
       'Fix icons flickering on application startup'
     ]
+  },
+  {
+    version: '1.4.1',
+    releaseDate: new Date('4/19/2022'),
+    description: 'Bug fixes',
+    notes: [
+      'Fix issue with emitting sound on expression input (macOS)'
+    ]
   }
 ];
