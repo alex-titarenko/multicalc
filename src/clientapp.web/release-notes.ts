@@ -145,5 +145,14 @@ export const releaseNotes: ReleaseInfo[] = [
     notes: [
       'Fix issue with emitting sound on expression input (macOS)'
     ]
+  },
+  {
+    version: '1.4.2',
+    releaseDate: new Date('4/20/2022'),
+    description: 'Bug fixes',
+    notes: [
+      'Remove pre-loader as result faster startup',
+      'Implement Apple Smart App Banner'
+    ]
   }
 ];
