@@ -41,6 +41,10 @@ mat-icon {
 
 .additional-menu {
   flex:0 0 auto;
+
+  mat-icon {
+    fill: var(--text-color);
+  }
 }
 
 
