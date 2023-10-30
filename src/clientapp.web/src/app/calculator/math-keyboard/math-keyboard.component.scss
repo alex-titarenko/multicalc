@@ -15,6 +15,7 @@ $grid-gap: 10px;
   button {
     font-size: inherit;
     height: auto;
+    white-space: nowrap;
 
     mat-icon {
       vertical-align: text-top;

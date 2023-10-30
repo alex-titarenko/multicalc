@@ -51,7 +51,7 @@ export class HistoryComponent implements OnInit {
 
   public clear() {
     this.messageService.showConfirmation(
-      'Do you really want to clear history?', 'Clear', 'Cancel',
+      'Do you really want to clear history?', 'CLEAR', 'CANCEL',
       () => {
         this.data.history.length = 0;
         this.dialogRef.close();
