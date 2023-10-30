@@ -10,9 +10,9 @@
 <div mat-dialog-content>
   <div class="talex-form-grid">
     <mat-form-field>
+      <mat-label>Decimal places</mat-label>
       <input
         matInput
-        placeholder="Decimal places"
         type="number"
         talexNumberInput
         minValue="0"
@@ -23,7 +23,8 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Numeric format" [(ngModel)]="data.answerFormat.numericFormat">
+      <mat-label>Numeric format</mat-label>
+      <mat-select [(ngModel)]="data.answerFormat.numericFormat">
         <mat-option value="E">Scientific</mat-option>
         <mat-option value="F">Fixed-point</mat-option>
         <mat-option value="G">General</mat-option>
@@ -31,9 +32,9 @@
     </mat-form-field>
 
     <mat-form-field>
+      <mat-label>Complex threshold</mat-label>
       <input
         matInput
-        placeholder="Complex threshold"
         type="number"
         talexNumberInput
         minValue="0"
@@ -44,9 +45,9 @@
     </mat-form-field>
 
     <mat-form-field>
+      <mat-label>Zero threshold</mat-label>
       <input
         matInput
-        placeholder="Zero threshold"
         type="number"
         talexNumberInput
         minValue="0"
@@ -57,7 +58,8 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Angle mode" [(ngModel)]="data.angleMode">
+      <mat-label>Angle mode</mat-label>
+      <mat-select [(ngModel)]="data.angleMode">
         <mat-option value="deg">Degree</mat-option>
         <mat-option value="rad">Radian</mat-option>
         <mat-option value="grad">Gradian</mat-option>

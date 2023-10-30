@@ -121,9 +121,11 @@
 
   button {
     font-size: 30px;
+    height: auto;
 
     mat-icon {
       vertical-align: text-top;
+      margin: 0;
     }
 
     &.additional-button {

@@ -14,7 +14,7 @@
       <ng-template matExpansionPanelContent>
         <mat-grid-list [cols]="gridColumns" rowHeight="170px" gutterSize="15px">
           <mat-grid-tile *ngFor="let func of group.functions">
-            <mat-card class="function-card" (click)="emitInsertFunction(func.name)">
+            <mat-card appearance="outlined" class="function-card" (click)="emitInsertFunction(func.name)">
               <mat-card-header class="function-card-header">
                 <mat-card-title>{{ func.displayName }}</mat-card-title>
                 <mat-card-subtitle>{{ func.description }}</mat-card-subtitle>

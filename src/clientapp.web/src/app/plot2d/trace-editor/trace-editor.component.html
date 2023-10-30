@@ -45,7 +45,9 @@
         <span class="talex-form-label-wrapper">
           <label for="line-thickness">Line thickness: {{ data.lineThickness }}</label>
         </span>
-        <mat-slider id="line-thickness" min="1" max="5" step="1" tickInterval="1" thumbLabel color="primary" [(ngModel)]="data.lineThickness" name="lineThickness"></mat-slider>
+        <mat-slider id="line-thickness" min="1" max="5" step="1" class="line-thickness-slider">
+          <input matSliderThumb [(ngModel)]="data.lineThickness" name="lineThickness">
+        </mat-slider>
       </div>
     </div>
   </div>

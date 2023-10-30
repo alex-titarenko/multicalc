@@ -78,7 +78,7 @@ export class ColorPickerDialogComponent implements OnInit {
     this.palette = [];
 
     let colors = [];
-    let x, y;
+    let x: number, y: number;
     for (x = -4; x <= 4; x++) {
       colors = [];
       for ( y = 0; y < this.basePalette.length; y++ ) {

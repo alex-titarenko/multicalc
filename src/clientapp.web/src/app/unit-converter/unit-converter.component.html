@@ -61,7 +61,7 @@
       </div>
     </div>
 
-    <mat-card class="expended-output-container">
+    <mat-card appearance="outlined" class="expended-output-container">
       <div class="expended-output-grid">
         <div *ngFor="let result of converterValues" class="expended-output-item">
           <span class="expended-output-result">{{ result.value.toDecimalPlaces(MaxInputLength - 1).toFixed() }}</span>

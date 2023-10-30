@@ -1,8 +1,8 @@
 .color-picker-dialog {
-  .mat-dialog-container {
+  .mat-mdc-dialog-container {
     padding: 0;
 
-    .mat-dialog-content {
+    .mat-mdc-dialog-content {
       margin: 0;
       padding: 0;
 
@@ -39,16 +39,9 @@
     }
   }
 
-  .color-picker-tabs {
-    .mat-tab-label {
-      min-width: 40px !important;
-      height: 31px !important;
-    }
-  }
-
   .color-picker-tab-content {
     margin: 8px;
-    height: 180px;
+    height: 190px;
   }
 
   .pallete-tab {
@@ -62,39 +55,27 @@
     grid-gap: 0 15px;
     grid-template-columns: 1fr 7fr 2fr;
 
-    .mat-slider-horizontal {
-      height: 30px;
-
-      .mat-slider-wrapper {
-        top: 14px;
-      }
-
-      .mat-slider-thumb {
-        border-color: transparent;
-      }
-    }
-
     .red-channel {
-      .mat-slider-track-fill, .mat-slider-thumb {
-        background-color: red;
+      .mdc-slider__track--active_fill, .mdc-slider__thumb-knob {
+        border-color: red;
       }
     }
 
     .green-channel {
-      .mat-slider-track-fill, .mat-slider-thumb {
-        background-color: green;
+      .mdc-slider__track--active_fill, .mdc-slider__thumb-knob {
+        border-color: green;
       }
     }
 
     .blue-channel {
-      .mat-slider-track-fill, .mat-slider-thumb {
-        background-color: blue;
+      .mdc-slider__track--active_fill, .mdc-slider__thumb-knob {
+        border-color: blue;
       }
     }
 
     .alpha-channel {
-      .mat-slider-track-fill, .mat-slider-thumb {
-        background-color: black;
+      .mdc-slider__track--active_fill, .mdc-slider__thumb-knob {
+        border-color: black;
       }
     }
   }
@@ -110,7 +91,7 @@
     cursor: pointer;
   }
 
-  .mat-dialog-actions {
+  .mat-mdc-dialog-actions {
     justify-content: space-around;
     padding: 0;
     margin: 0 8px;

@@ -14,9 +14,11 @@ $grid-gap: 10px;
 
   button {
     font-size: inherit;
+    height: auto;
 
     mat-icon {
       vertical-align: text-top;
+      margin: 0;
     }
 
     &.additional-button {

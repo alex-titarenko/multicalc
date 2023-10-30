@@ -25,25 +25,82 @@
 
         <div class="color-picker-tab-content color-sliders-tab">
           <span>R</span>
-          <mat-slider min="0" max="255" step="1" class="red-channel" (input)="updateColorChannel('_r', $event.value)" [value]="color.toRgb().r"></mat-slider>
-          <input matInput type="number" min="0" max="255" step="1" (ngModelChange)="updateColorChannel('_r', $event)" [ngModel]="color.toRgb().r">
+          <mat-slider min="0" max="255" step="1" class="red-channel" #ngSlider>
+            <input
+              matSliderThumb
+              [value]="color.toRgb().r"
+              (input)="updateColorChannel('_r', {source: ngSliderThumbR, parent: ngSlider, value: ngSliderThumbR.value}.value)" #ngSliderThumbR="matSliderThumb"
+            />
+          </mat-slider>
+          <input
+            matInput
+            type="number"
+            min="0"
+            max="255"
+            step="1"
+            (ngModelChange)="updateColorChannel('_r', $event)"
+            [ngModel]="color.toRgb().r"
+          >
 
           <span>G</span>
-          <mat-slider min="0" max="255" step="1" class="green-channel" (input)="updateColorChannel('_g', $event.value)" [value]="color.toRgb().g"></mat-slider>
-          <input matInput type="number" min="0" max="255" step="1" (ngModelChange)="updateColorChannel('_g', $event)" [ngModel]="color.toRgb().g">
+          <mat-slider min="0" max="255" step="1" class="green-channel" #ngSlider>
+            <input
+              matSliderThumb
+              [value]="color.toRgb().g"
+              (input)="updateColorChannel('_g', {source: ngSliderThumbG, parent: ngSlider, value: ngSliderThumbG.value}.value)"
+              #ngSliderThumbG="matSliderThumb"
+            />
+          </mat-slider>
+          <input
+            matInput
+            type="number"
+            min="0"
+            max="255"
+            step="1"
+            (ngModelChange)="updateColorChannel('_g', $event)"
+            [ngModel]="color.toRgb().g"
+          >
 
           <span>B</span>
-          <mat-slider min="0" max="255" step="1" class="blue-channel" (input)="updateColorChannel('_b', $event.value)" [value]="color.toRgb().b"></mat-slider>
-          <input matInput type="number" min="0" max="255" step="1" (ngModelChange)="updateColorChannel('_b', $event)" [ngModel]="color.toRgb().b">
+          <mat-slider min="0" max="255" step="1" class="blue-channel" #ngSlider>
+            <input
+              matSliderThumb
+              [value]="color.toRgb().b"
+              (input)="updateColorChannel('_b', {source: ngSliderThumbB, parent: ngSlider, value: ngSliderThumbB.value}.value)"
+              #ngSliderThumbB="matSliderThumb"
+            />
+          </mat-slider>
+          <input
+            matInput
+            type="number"
+            min="0"
+            max="255"
+            step="1" (ngModelChange)="updateColorChannel('_b', $event)"
+            [ngModel]="color.toRgb().b"
+          >
 
           <span>A</span>
-          <mat-slider min="0" max="1" step="0.01" class="alpha-channel" (input)="updateColorChannel('_a', $event.value)" [value]="color.getAlpha()"></mat-slider>
-          <input matInput type="number" min="0" max="1" step="0.01" (ngModelChange)="updateColorChannel('_a', $event)" [ngModel]="color.getAlpha()">
+          <mat-slider min="0" max="1" step="0.01" class="alpha-channel" #ngSlider>
+            <input
+              matSliderThumb
+              [value]="color.getAlpha()"
+              (input)="updateColorChannel('_a', {source: ngSliderThumbA, parent: ngSlider, value: ngSliderThumbA.value}.value)"
+              #ngSliderThumbA="matSliderThumb"
+            />
+          </mat-slider>
+          <input
+            matInput
+            type="number"
+            min="0"
+            max="1"
+            step="0.01"
+            (ngModelChange)="updateColorChannel('_a', $event)"
+            [ngModel]="color.getAlpha()"
+          >
         </div>
       </mat-tab>
     </mat-tab-group>
   </div>
-
 </mat-dialog-content>
 
 <mat-dialog-actions>

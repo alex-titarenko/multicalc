@@ -9,6 +9,19 @@ mat-sidenav-content {
   background: var(--background-color) !important;
 }
 
+mat-card {
+  padding: 16px;
+}
+
+mat-card-header {
+  padding-top: 16px;
+  margin: -16px -16px 0;
+}
+
+mat-card-title {
+  margin-bottom: 12px !important;
+}
+
 mat-toolbar {
   background: var(--toolbar-color) !important;
   box-shadow: 0 8px 10px -5px rgba(0,0,0,.2);
@@ -35,12 +48,18 @@ snack-bar-container {
   max-width: unset !important;
 }
 
-.mat-slider-wrapper {
-  left: 0 !important;
-  right: 0 !important;
-}
-
-.mat-tooltip {
+.mat-mdc-tooltip {
   margin: 8px !important;
   font-size: 12px !important;
 }
+
+.mat-mdc-input-element {
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.mdc-list-item__content {
+  width: 100%;
+}
+

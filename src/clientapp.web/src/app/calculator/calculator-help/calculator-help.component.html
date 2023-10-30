@@ -7,7 +7,7 @@
 </mat-toolbar>
 
 <div mat-dialog-content>
-  <mat-card *ngFor="let usageTip of usageTips" class="usage-tip-card">
+  <mat-card appearance="outlined" *ngFor="let usageTip of usageTips" class="usage-tip-card">
     <mat-card-header class="usage-tip-card-header">
       <mat-card-title class="usage-tip-problem">{{ usageTip.problem }}</mat-card-title>
     </mat-card-header>
