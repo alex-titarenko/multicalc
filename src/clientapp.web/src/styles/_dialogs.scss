@@ -22,7 +22,7 @@
       border-radius: 0;
       padding: 0;
 
-      >.ng-star-inserted, form {
+      .mat-mdc-dialog-surface>.ng-star-inserted, form {
         display: flex;
         flex-direction: column;
         min-height: 100%;
@@ -71,7 +71,7 @@
     border-radius: 0;
     padding: 0;
 
-    >.ng-star-inserted, form {
+    .mat-mdc-dialog-surface>.ng-star-inserted, form {
       display: flex;
       flex-direction: column;
       min-height: 100%;
