@@ -21,13 +21,11 @@
 
 .function-card {
   cursor: pointer;
-  width: calc(100% - 35px);
-  min-height: calc(100% - 35px);
+  width: 100%;
+  min-height: 100%;
 
   .function-card-header {
-    padding-top: 16px;
-    margin: -16px;
-    margin-bottom: 0;
+    padding: 10px 16px;
     border-radius: 4px 4px 0 0;
     background: var(--card-header-color);
   }
