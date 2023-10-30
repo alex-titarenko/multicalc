@@ -5,7 +5,7 @@
     <button type="button" mat-icon-button (click)="cancel()"><mat-icon svgIcon="arrow_back"></mat-icon></button>
     <h1>{{ isEdit ? "Edit trace" : "New trace" }}</h1>
     <span class="spacer"></span>
-    <button type="submit" mat-button [disabled]="!f.valid">{{ isEdit ? "Apply" : "Add" }}</button>
+    <button type="submit" mat-button [disabled]="!f.valid">{{ isEdit ? "APPLY" : "ADD" }}</button>
   </mat-toolbar>
 
   <div mat-dialog-content>
@@ -52,7 +52,7 @@
     </div>
   </div>
   <div mat-dialog-actions align="end">
-    <button type="button" mat-button (click)="cancel()">Cancel</button>
-    <button type="submit" mat-button [disabled]="!f.valid">{{ isEdit ? "Apply" : "Add" }}</button>
+    <button type="button" mat-button (click)="cancel()">CANCEL</button>
+    <button type="submit" mat-button [disabled]="!f.valid">{{ isEdit ? "APPLY" : "ADD" }}</button>
   </div>
 </form>
