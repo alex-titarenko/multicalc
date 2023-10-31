@@ -10,6 +10,7 @@
   flex-direction: column;
   height: auto !important;
   margin-bottom: 20px;
+  padding: 0;
 
   .mat-line:nth-child(n+2) {
     font-size: inherit;
@@ -40,11 +41,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    font-size: larger;
+    margin: 4px 0;
   }
 
   .history-result {
     color: darkgray;
-
     overflow-x: auto;
+    font-size: larger;
+    margin: 4px 0;
   }
 }
