@@ -47,16 +47,13 @@
     display: grid;
     grid-template-columns: auto;
     grid-gap: 10px 40px;
+    overflow-x: hidden;
 
     .expended-output-item {
-      overflow: hidden;
-      text-overflow: ellipsis;
-
       .expended-output-unit {
         font-size: 11px;
         color: gray;
         display: block;
-        margin-top: -2px;
       }
 
       .expended-output-result {
