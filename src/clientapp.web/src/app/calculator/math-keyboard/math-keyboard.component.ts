@@ -1,8 +1,8 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { trigger, style, transition, animate, query, group } from '@angular/animations';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ExtendedInput, ExtendedInputComponent } from '../extended-input/extended-input.component';
+import { animate, group, query, style, transition, trigger } from '@angular/animations';
 
-import { ExtendedInputComponent, ExtendedInput } from '../extended-input/extended-input.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 
 export enum KeyboardMode {
   Full = 0,

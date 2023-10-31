@@ -6,7 +6,7 @@ import { Directive, ElementRef, EventEmitter, Input, Output, HostListener } from
 export class ClickableDirective {
   private pressed = false;
   private elementPosition: DOMRect;
-  private longPressTimeout: NodeJS.Timer = null;
+  private longPressTimeout: NodeJS.Timeout = null;
 
   protected get element(): HTMLElement {
     return <HTMLElement>this.elementRef.nativeElement;

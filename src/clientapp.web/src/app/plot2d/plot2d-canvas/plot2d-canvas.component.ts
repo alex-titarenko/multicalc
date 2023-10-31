@@ -142,7 +142,7 @@ export class Plot2DCanvasComponent implements AfterViewInit, OnChanges, DoCheck 
   private selectedRegionContext: CanvasRenderingContext2D;
   private tracesDiffer: IterableDiffer<Trace2D>;
   private undoStack: ViewportState[] = [];
-  private resizeTimer: NodeJS.Timer = null;
+  private resizeTimer: NodeJS.Timeout = null;
 
   // Horizontal displacement of the center of the Plot2D.
   private horizOffset: number = 0.0;

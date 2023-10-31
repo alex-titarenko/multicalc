@@ -9,7 +9,7 @@ export class FitTextDirective {
   @Input()
   public maxFontSize?: number;
 
-  private resizeTimer: NodeJS.Timer = null;
+  private resizeTimer: NodeJS.Timeout = null;
 
   constructor(element: ElementRef) {
     FitTextDirective.targetElements.push(element.nativeElement);

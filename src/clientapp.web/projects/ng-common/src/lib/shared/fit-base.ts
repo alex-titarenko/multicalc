@@ -2,7 +2,7 @@ import { ElementRef, HostListener, Directive } from '@angular/core';
 
 @Directive()
 export abstract class FitBase {
-  private resizeTimer: NodeJS.Timer = null;
+  private resizeTimer: NodeJS.Timeout = null;
 
   protected get element(): HTMLElement {
     return <HTMLElement>this.elementRef.nativeElement;
