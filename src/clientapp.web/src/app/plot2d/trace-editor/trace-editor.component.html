@@ -29,12 +29,12 @@
         <mat-error>{{ (expression.errors || {})['mathExpression'] }}</mat-error>
       </mat-form-field>
 
-      <div>
+      <div class="bound-control-container">
         <mat-slide-toggle color="primary" [(ngModel)]="data.hasLowerBound" name="hasLowerBound">Lower bound</mat-slide-toggle>
         <input type="number" [hidden]="!data.hasLowerBound" matInput talexNumberInput [maxValue]="data.upperBound" [(ngModel)]="data.lowerBound" name="lowerBound">
       </div>
 
-      <div>
+      <div class="bound-control-container">
         <mat-slide-toggle color="primary" [(ngModel)]="data.hasUpperBound" name="hasUpperBound">Upper bound</mat-slide-toggle>
         <input type="number" [hidden]="!data.hasUpperBound" matInput talexNumberInput [minValue]="data.lowerBound" [(ngModel)]="data.upperBound" name="upperBound">
       </div>

@@ -44,6 +44,8 @@ snack-bar-container {
   background: transparent;
   outline: none;
   border: none;
+  color: var(--text-color);
+  font-size: inherit;
 }
 
 .mdc-list-item__content {
