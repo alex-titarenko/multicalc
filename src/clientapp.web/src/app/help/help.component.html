@@ -8,7 +8,7 @@
   </mat-toolbar>
 
   <div class="page-container help-page">
-    <nav mat-tab-nav-bar>
+    <nav mat-tab-nav-bar [tabPanel]="tabPanel">
       <a mat-tab-link routerLinkActive="active" routerLink="about" #about="routerLinkActive" [active]="about.isActive">
         <mat-icon svgIcon="info"></mat-icon>
         <span class="tab-label">About</span>
@@ -36,7 +36,9 @@
     </nav>
 
     <div class="help-subpage-container">
-      <router-outlet></router-outlet>
+      <mat-tab-nav-panel #tabPanel>
+        <router-outlet></router-outlet>
+      </mat-tab-nav-panel>
     </div>
   </div>
 </div>

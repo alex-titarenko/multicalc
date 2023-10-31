@@ -16,22 +16,20 @@
 <p>Our Service uses the following 3rd-party media items:</p>
 
 <mat-card appearance="outlined" class="media-items-list">
-  <mat-card-content>
-    <mat-list role="list">
-      <ng-container *ngFor="let mediaLicense of mediaLicenses; last as isLast">
-        <mat-list-item role="listitem">
-          <span matLine>
-            <a href="{{ mediaLicense.itemUrl }}" target="_blank" rel="noopener">{{ mediaLicense.itemName }}</a>
-            <span [innerHtml]="mediaLicense.itemDescription"></span>
-          </span>
-          <span matLine>
-            Licensed by <a href="{{ mediaLicense.licenseUrl }}" title="{{ mediaLicense.licenseName }}" target="_blank" rel="noopener">{{ mediaLicense.licenseName }}</a>
-          </span>
-        </mat-list-item>
-        <mat-divider *ngIf="!isLast"></mat-divider>
-      </ng-container>
-    </mat-list>
-  </mat-card-content>
+  <mat-list role="list">
+    <ng-container *ngFor="let mediaLicense of mediaLicenses; last as isLast">
+      <mat-list-item role="listitem">
+        <span>
+          <a href="{{ mediaLicense.itemUrl }}" target="_blank" rel="noopener">{{ mediaLicense.itemName }}</a>
+          <span [innerHtml]="mediaLicense.itemDescription"></span>
+        </span>
+        <span>
+          <br>Licensed by <a href="{{ mediaLicense.licenseUrl }}" title="{{ mediaLicense.licenseName }}" target="_blank" rel="noopener">{{ mediaLicense.licenseName }}</a>
+        </span>
+      </mat-list-item>
+      <mat-divider *ngIf="!isLast"></mat-divider>
+    </ng-container>
+  </mat-list>
 </mat-card>
 
 <div class="bottom-spacer"></div>
