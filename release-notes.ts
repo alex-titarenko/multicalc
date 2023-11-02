@@ -154,5 +154,13 @@ export const releaseNotes: ReleaseInfo[] = [
       'Remove pre-loader as result faster startup',
       'Implement Apple Smart App Banner'
     ]
+  },
+  {
+    version: '1.5.1',
+    releaseDate: new Date('11/1/2023'),
+    description: 'Performance improvements',
+    notes: [
+      'Faster start-up time'
+    ]
   }
 ];

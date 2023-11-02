@@ -18,7 +18,8 @@ export class MessageService {
     this.dialog.open(ConfirmationMessageDialogComponent, {
       width: 'auto',
       autoFocus: false,
-      data: data
+      data: data,
+      panelClass: ''
     });
   }
 }
@@ -32,8 +33,8 @@ class MessageData {
 
 @Component({
   template: `
-<mat-dialog-content class="content">{{ data.message }}</mat-dialog-content>
-<mat-dialog-actions class="actions" align="center">
+<mat-dialog-content>{{ data.message }}</mat-dialog-content>
+<mat-dialog-actions align="center">
   <button type="button" mat-button (click)="cancelAction()" >{{ data.cancelText }}</button>
   <button type="button" mat-button (click)="okAction()">{{ data.okText }}</button>
 </mat-dialog-actions>`
