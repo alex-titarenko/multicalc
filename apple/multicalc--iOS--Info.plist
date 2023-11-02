@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>WKAppBoundDomains</key>
+	<array>
+		<string>www.multicalculator.app</string>
+	</array>
+    <!--    <key>UIApplicationShortcutItems</key>-->
+    <!--    <array>-->
+    <!--        <dict>-->
+    <!--            <key>UIApplicationShortcutItemIconFile</key>-->
+    <!--            <string>calculator</string>-->
+    <!--            <key>UIApplicationShortcutItemTitle</key>-->
+    <!--            <string>Calculator</string>-->
+    <!--            <key>UIApplicationShortcutItemType</key>-->
+    <!--            <string>calculator</string>-->
+    <!--        </dict>-->
+    <!--        <dict>-->
+    <!--            <key>UIApplicationShortcutItemIconFile</key>-->
+    <!--            <string>unit_converter</string>-->
+    <!--            <key>UIApplicationShortcutItemTitle</key>-->
+    <!--            <string>Unit Converter</string>-->
+    <!--            <key>UIApplicationShortcutItemType</key>-->
+    <!--            <string>unit_converter</string>-->
+    <!--        </dict>-->
+    <!--        <dict>-->
+    <!--            <key>UIApplicationShortcutItemIconFile</key>-->
+    <!--            <string>plot2d</string>-->
+    <!--            <key>UIApplicationShortcutItemTitle</key>-->
+    <!--            <string>Plot 2D</string>-->
+    <!--            <key>UIApplicationShortcutItemType</key>-->
+    <!--            <string>plot2d</string>-->
+    <!--        </dict>-->
+    <!--    </array>-->
+</dict>
+</plist>
