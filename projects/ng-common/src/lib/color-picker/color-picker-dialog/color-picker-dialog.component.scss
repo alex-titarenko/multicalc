@@ -1,0 +1,106 @@
+.color-picker-dialog {
+  .mat-mdc-dialog-container {
+    padding: 0;
+
+    .mat-mdc-dialog-content {
+      margin: 0;
+      padding: 0;
+
+      max-height: 100vh;
+    }
+  }
+
+  .checkered-bg {
+    background: white;
+    background-image:
+      linear-gradient(45deg, #ddd 25%, transparent 25%, transparent 75%, #ddd 75%, #ddd),
+      linear-gradient(45deg, #ddd 25%, transparent 25%, transparent 75%, #ddd 75%, #ddd);
+    background-size: 10px 10px;
+    background-position: 0 0, 5px 5px;
+
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,0.14), 0 2px 2px 0 rgba(0,0,0,0.098), 0 1px 5px 0 rgba(0,0,0,0.084);
+  }
+
+  .color-picker-preview {
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      color: white;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    span.dark {
+      color: black;
+    }
+  }
+
+  .color-picker-tab-content {
+    margin: 8px;
+    height: 190px;
+  }
+
+  .pallete-tab {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .color-sliders-tab {
+    display: grid;
+    align-items: center;
+    grid-gap: 0 15px;
+    grid-template-columns: 1fr 7fr 2fr;
+
+    .red-channel {
+      .mdc-slider__track--active_fill, .mdc-slider__thumb-knob {
+        border-color: red;
+      }
+    }
+
+    .green-channel {
+      .mdc-slider__track--active_fill, .mdc-slider__thumb-knob {
+        border-color: green;
+      }
+    }
+
+    .blue-channel {
+      .mdc-slider__track--active_fill, .mdc-slider__thumb-knob {
+        border-color: blue;
+      }
+    }
+
+    .alpha-channel {
+      .mdc-slider__track--active_fill, .mdc-slider__thumb-knob {
+        border-color: black;
+      }
+    }
+  }
+
+  .pallete-row {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .pallete-color {
+    flex: 1;
+    cursor: pointer;
+  }
+
+  .mat-mdc-dialog-actions {
+    justify-content: space-around;
+    padding: 0;
+    margin: 0 8px;
+    min-height: 45px;
+
+    button {
+      width: auto;
+      text-transform: uppercase;
+      flex: 1;
+    }
+  }
+}

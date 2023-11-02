@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Help</h1>
+
+<mat-toolbar>
+  <button type="button" mat-icon-button mat-dialog-close><mat-icon svgIcon="arrow_back"></mat-icon></button>
+  <h1>Help</h1>
+  <span class="spacer"></span>
+</mat-toolbar>
+
+<div mat-dialog-content>
+  <mat-card appearance="outlined" *ngFor="let usageTip of usageTips" class="usage-tip-card">
+    <mat-card-header class="usage-tip-card-header">
+      <mat-card-title class="usage-tip-problem">{{ usageTip.problem }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p class="usage-tip-solution" [innerHtml]="usageTip.solution"></p>
+    </mat-card-content>
+  </mat-card>
+
+  <p class="footer">* In all cases where you see <strong>press and hold</strong>, you may use right mouse click on a computer.</p>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>CLOSE</button>
+</div>

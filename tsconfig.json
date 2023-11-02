@@ -1,0 +1,38 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "importHelpers": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "target": "ES2022",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "shared/*": [
+        "src/app/shared/*"
+      ],
+      "app/*": [
+        "src/app/*"
+      ],
+      "ng-common": [
+        "projects/ng-common/src/public_api"
+      ],
+      "mathcore/*": [
+        "projects/mathcore/src/*"
+      ]
+    },
+    "useDefineForClassFields": false
+  }
+}
