@@ -112,19 +112,13 @@ class AppShemeHandler : NSObject, WKURLSchemeHandler {
             )
             
             let staticAssets = folderItems.map {
-                do {
-                    let itemName = $0.lastPathComponent
-                    let folderItemAttributes = try $0.resourceValues(forKeys: Set(propertyKeys))
-                    
-                    if (folderItemAttributes.isRegularFile!) {
-                        return "/\(itemName)"
-                    } else if (folderItemAttributes.isDirectory!) {
-                        return "/\(itemName)/"
-                    } else {
-                        return ""
-                    }
-                } catch {
-                    return ""
+                let itemName = $0.lastPathComponent
+                let folderItemAttributes = try? $0.resourceValues(forKeys: Set(propertyKeys))
+                
+                if (folderItemAttributes != nil && folderItemAttributes!.isDirectory!) {
+                    return "/\(itemName)/"
+                } else {
+                    return "/\(itemName)"
                 }
             }
             
