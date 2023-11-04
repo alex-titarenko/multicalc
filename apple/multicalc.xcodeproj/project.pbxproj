@@ -21,14 +21,16 @@
 		4C9F83C627F9614700A25DE2 /* WebViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F83C527F9614700A25DE2 /* WebViewExtensions.swift */; };
 		4C9F83C727F9614700A25DE2 /* WebViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F83C527F9614700A25DE2 /* WebViewExtensions.swift */; };
 		4C9F83CA27FC18CE00A25DE2 /* macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F83C827FC18CE00A25DE2 /* macOS.swift */; };
+		4CCC60B62AF5E3640081449F /* iOS.Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C707E9B2814FB480081049E /* iOS.Info.plist */; };
+		4CCC60B72AF5E36C0081449F /* macOS.Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C707E9A2814FAAF0081049E /* macOS.Info.plist */; };
 		4CF003BE282A05E700E1F6A9 /* AppReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF003BD282A05E700E1F6A9 /* AppReviewRequest.swift */; };
 		4CF003BF282A05E700E1F6A9 /* AppReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF003BD282A05E700E1F6A9 /* AppReviewRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C66FEF1282C6AA60062407F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C707E9A2814FAAF0081049E /* multicalc--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "multicalc--macOS--Info.plist"; sourceTree = "<group>"; };
-		4C707E9B2814FB480081049E /* multicalc--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "multicalc--iOS--Info.plist"; sourceTree = "<group>"; };
+		4C707E9A2814FAAF0081049E /* macOS.Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = macOS.Info.plist; sourceTree = "<group>"; };
+		4C707E9B2814FB480081049E /* iOS.Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOS.Info.plist; sourceTree = "<group>"; };
 		4C95CB3F27F81B3600AABFBA /* multicalcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multicalcApp.swift; sourceTree = "<group>"; };
 		4C95CB4027F81B3600AABFBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C95CB4127F81B3700AABFBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,11 +66,9 @@
 		4C95CB3927F81B3600AABFBA = {
 			isa = PBXGroup;
 			children = (
-				4C707E9B2814FB480081049E /* multicalc--iOS--Info.plist */,
-				4C707E9A2814FAAF0081049E /* multicalc--macOS--Info.plist */,
 				4C9F83C127F9591B00A25DE2 /* iOS */,
-				4C95CB3E27F81B3600AABFBA /* Shared */,
 				4C95CB4D27F81B3700AABFBA /* macOS */,
+				4C95CB3E27F81B3600AABFBA /* Shared */,
 				4C95CB4727F81B3700AABFBA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,9 +76,9 @@
 		4C95CB3E27F81B3600AABFBA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				4C95CB4127F81B3700AABFBA /* Assets.xcassets */,
 				4C95CB3F27F81B3600AABFBA /* multicalcApp.swift */,
 				4C95CB4027F81B3600AABFBA /* ContentView.swift */,
-				4C95CB4127F81B3700AABFBA /* Assets.xcassets */,
 				4C9F83BB27F956A200A25DE2 /* WebViewModel.swift */,
 				4C9F83C527F9614700A25DE2 /* WebViewExtensions.swift */,
 				4CF003BD282A05E700E1F6A9 /* AppReviewRequest.swift */,
@@ -98,6 +98,7 @@
 		4C95CB4D27F81B3700AABFBA /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				4C707E9A2814FAAF0081049E /* macOS.Info.plist */,
 				4C95CB4E27F81B3700AABFBA /* macOS.entitlements */,
 				4C9F83C227F95BEF00A25DE2 /* WebView.swift */,
 				4C9F83C827FC18CE00A25DE2 /* macOS.swift */,
@@ -109,6 +110,7 @@
 		4C9F83C127F9591B00A25DE2 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4C707E9B2814FB480081049E /* iOS.Info.plist */,
 				4C9F83BE27F9586100A25DE2 /* WebView.swift */,
 			);
 			path = iOS;
@@ -194,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C95CB5327F81B3700AABFBA /* Assets.xcassets in Resources */,
+				4CCC60B62AF5E3640081449F /* iOS.Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C95CB5427F81B3700AABFBA /* Assets.xcassets in Resources */,
+				4CCC60B72AF5E36C0081449F /* macOS.Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +362,7 @@
 				DEVELOPMENT_TEAM = JM3K789V38;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "multicalc--iOS--Info.plist";
+				INFOPLIST_FILE = iOS/iOS.Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -389,7 +393,7 @@
 				DEVELOPMENT_TEAM = JM3K789V38;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "multicalc--iOS--Info.plist";
+				INFOPLIST_FILE = iOS/iOS.Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -424,7 +428,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "multicalc--macOS--Info.plist";
+				INFOPLIST_FILE = macOS/macOS.Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -454,7 +458,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "multicalc--macOS--Info.plist";
+				INFOPLIST_FILE = macOS/macOS.Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
