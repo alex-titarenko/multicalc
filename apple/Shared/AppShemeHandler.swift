@@ -86,7 +86,7 @@ class AppShemeHandler : NSObject, WKURLSchemeHandler {
     func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {
     }
     
-    func notFoundResponse(_ url: URL) -> HTTPURLResponse {
+    private func notFoundResponse(_ url: URL) -> HTTPURLResponse {
         let notFoundResponse = HTTPURLResponse(
             url: url,
             statusCode: 404,
