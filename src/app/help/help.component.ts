@@ -22,8 +22,8 @@ export class HelpComponent extends BasePageComponent {
     super(elementRef);
   }
 
-  public share(): void {
-    this.sharingService.shareUrl(appConfig.appUrl);
+  public async share(): Promise<void> {
+    await this.sharingService.shareUrl(appConfig.appUrl);
     this.analyticsService.trackEvent('app_share');
   }
 
