@@ -23,7 +23,7 @@ struct ContentView: View {
         #endif
         
         self.webViewModel = WebViewModel(
-            url: "https://www.multicalculator.app",
+            url: "app://noteshub.app",
             styleSheets: styleSheets
         )
     }

@@ -16,10 +16,10 @@ extension WebView {
         
         let config = WKWebViewConfiguration()
         
-        // limitsNavigationsToAppBoundDomains is needed to enable ServiceWorkers on iOS
-        // The list of approved domain located in Info.plist
-        config.limitsNavigationsToAppBoundDomains = true
+        config.limitsNavigationsToAppBoundDomains = false
         config.preferences.setValue(true, forKey: "standalone")
+        
+        config.setURLSchemeHandler(AppShemeHandler(contentRootDir: "assets/www"), forURLScheme: "app")
         
         let userContentController = WKUserContentController()
         
@@ -46,6 +46,7 @@ extension WebView {
         webView.scrollView.bounces = false
         webView.scrollView.alwaysBounceHorizontal = false
         webView.scrollView.alwaysBounceVertical = false
+        webView.isOpaque = false
         #endif
         
         webView.addObserver(context.coordinator, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)

@@ -4,9 +4,5 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-	<key>WKAppBoundDomains</key>
-	<array>
-		<string>www.multicalculator.app</string>
-	</array>
 </dict>
 </plist>
