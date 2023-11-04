@@ -13,11 +13,15 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production && npm run sync",
+    "sync": "npm run sync:apple",
+    "sync:apple": "node ./scripts/sync-build-output apple/assets/www",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
+  "type": "module",
   "dependencies": {
     "@angular/animations": "^16.2.11",
     "@angular/cdk": "^16.2.10",
