@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { appConfig } from 'app/core/configs/app.config';
 
@@ -39,9 +40,9 @@ export class FeedbackOptionsComponent implements OnInit {
       { text: 'Give Feedback', url: feedbackEmailLink, newWindow: false },
       { text: 'Suggest a Feature', url: newFeatureEmailLink, newWindow: false },
       { text: 'Report an Issue', url: issueEmailLink, newWindow: false },
-      { text: 'Follow on Facebook', url: appConfig.facebookLink, newWindow: true },
-      { text: 'Follow on Twitter', url: appConfig.twitterLink, newWindow: true },
-      { text: 'Follow on Instagram', url: appConfig.instagramLink, newWindow: true }
+      { text: 'Follow on Facebook', url: appConfig.facebookUrl, newWindow: true },
+      { text: 'Follow on Twitter', url: appConfig.twitterUrl, newWindow: true },
+      { text: 'Follow on Instagram', url: appConfig.instagramUrl, newWindow: true }
     ];
   }
 

@@ -9,10 +9,8 @@ export class SharingService {
   }
 
   public shareUrl(url: string): void {
-    const nav: any = navigator;
-
-    if (nav.share) {
-      nav.share({ url: url });
+    if (navigator.share) {
+      navigator.share({ url: url });
       return;
     }
 
