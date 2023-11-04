@@ -23,6 +23,8 @@
 		4C9F83CA27FC18CE00A25DE2 /* macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F83C827FC18CE00A25DE2 /* macOS.swift */; };
 		4CCC60B62AF5E3640081449F /* iOS.Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C707E9B2814FB480081049E /* iOS.Info.plist */; };
 		4CCC60B72AF5E36C0081449F /* macOS.Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C707E9A2814FAAF0081049E /* macOS.Info.plist */; };
+		4CCC60BB2AF5E9900081449F /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCC60BA2AF5E9900081449F /* assets */; };
+		4CCC60BC2AF5E9900081449F /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCC60BA2AF5E9900081449F /* assets */; };
 		4CF003BE282A05E700E1F6A9 /* AppReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF003BD282A05E700E1F6A9 /* AppReviewRequest.swift */; };
 		4CF003BF282A05E700E1F6A9 /* AppReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF003BD282A05E700E1F6A9 /* AppReviewRequest.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,7 @@
 		4C9F83C227F95BEF00A25DE2 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		4C9F83C527F9614700A25DE2 /* WebViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewExtensions.swift; sourceTree = "<group>"; };
 		4C9F83C827FC18CE00A25DE2 /* macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS.swift; sourceTree = "<group>"; };
+		4CCC60BA2AF5E9900081449F /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		4CF003BD282A05E700E1F6A9 /* AppReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +69,7 @@
 		4C95CB3927F81B3600AABFBA = {
 			isa = PBXGroup;
 			children = (
+				4CCC60BA2AF5E9900081449F /* assets */,
 				4C9F83C127F9591B00A25DE2 /* iOS */,
 				4C95CB4D27F81B3700AABFBA /* macOS */,
 				4C95CB3E27F81B3600AABFBA /* Shared */,
@@ -195,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CCC60BB2AF5E9900081449F /* assets in Resources */,
 				4C95CB5327F81B3700AABFBA /* Assets.xcassets in Resources */,
 				4CCC60B62AF5E3640081449F /* iOS.Info.plist in Resources */,
 			);
@@ -204,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CCC60BC2AF5E9900081449F /* assets in Resources */,
 				4C95CB5427F81B3700AABFBA /* Assets.xcassets in Resources */,
 				4CCC60B72AF5E36C0081449F /* macOS.Info.plist in Resources */,
 			);
