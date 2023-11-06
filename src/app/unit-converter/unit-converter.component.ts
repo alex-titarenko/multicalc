@@ -5,6 +5,8 @@ import { Quantity } from 'mathcore/unit-conversion/quantities/quantity';
 import { Unit } from 'mathcore/unit-conversion/units/unit';
 import { UnitConverter } from 'mathcore/unit-conversion/unit-converter';
 import { quantityAttribute } from 'mathcore/unit-conversion/quantities/annotation/quantity.attribute';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { ClipboardMenuComponent } from './clipboard-menu/clipboard-menu.component';
 
 interface ConverterResult {
   unit: string;
@@ -58,7 +60,7 @@ export class UnitConverterComponent extends BasePageComponent {
   public convertedValue: DecimalJs;
   public converterValues: ConverterResult[];
 
-  constructor(elementRef: ElementRef) {
+  constructor(elementRef: ElementRef, private bottomSheet: MatBottomSheet) {
     super(elementRef);
 
     DecimalJs.precision = this.MaxInputLength;
@@ -115,6 +117,27 @@ export class UnitConverterComponent extends BasePageComponent {
     this.targetQuantity.outputUnit = tempUnit;
 
     this.sourceValue = tempConvertedValue;
+  }
+
+  public inputMenu() {
+    this.bottomSheet.open(ClipboardMenuComponent, {
+      restoreFocus: false,
+      data: {
+        value: this.sourceValue,
+        onPaste: (value: string) => {
+          this.sourceValue = value;
+        }
+      }
+    });
+  }
+
+  public outputMenu() {
+    this.bottomSheet.open(ClipboardMenuComponent, {
+      restoreFocus: false,
+      data: {
+        value: this.convertedValue.toFixed()
+      }
+    });
   }
 
   protected onKeyPress(event: KeyboardEvent) {

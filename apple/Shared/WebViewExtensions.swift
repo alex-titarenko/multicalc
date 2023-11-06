@@ -57,6 +57,12 @@ extension WebView {
         webView.allowsBackForwardNavigationGestures = true
         webView.load(request)
         
+        #if DEBUG
+        if #available(iOS 16.4, macOS 13.3, *) {
+            webView.isInspectable = true
+        }
+        #endif
+        
         return webView
     }
     

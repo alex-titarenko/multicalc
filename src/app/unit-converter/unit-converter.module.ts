@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
+import { ClipboardMenuComponent } from './clipboard-menu/clipboard-menu.component';
 import { CommonModule } from '@angular/common';
-
 import { MaterialModule } from 'shared/material.module';
 import { NgCommonModule } from 'ng-common';
+import { NgModule } from '@angular/core';
 import { UnitConverterComponent } from './unit-converter.component';
 
 @NgModule({
   declarations: [
-    UnitConverterComponent
+    UnitConverterComponent,
+    ClipboardMenuComponent
   ],
   imports: [
     CommonModule,

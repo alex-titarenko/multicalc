@@ -18,7 +18,7 @@
         </div>
 
         <div class="input-container">
-          <div class="text-block" talexFitText maxFontSize="150">
+          <div class="text-block" talexFitText maxFontSize="150" talexClickable (elPress)="inputMenu()">
             {{ sourceValue }}
           </div>
 
@@ -28,7 +28,7 @@
         </div>
 
         <div class="output-container">
-          <div class="text-block" talexFitText maxFontSize="150">
+          <div class="text-block" talexFitText maxFontSize="150" talexClickable (elPress)="outputMenu()">
             {{ convertedValue.toSignificantDigits(MaxInputLength - 1).toFixed() }}
           </div>
 
