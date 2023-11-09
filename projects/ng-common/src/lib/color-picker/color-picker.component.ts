@@ -32,7 +32,6 @@ export class ColorPickerComponent {
   public openColorPickerDialog() {
     const dialogRef = this.dialog.open(ColorPickerDialogComponent, {
       width: '300px',
-      height: '362px',
       panelClass: 'color-picker-dialog',
       autoFocus: false,
       data: { color: this.color }
