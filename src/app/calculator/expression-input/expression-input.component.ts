@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Expression, TokenType } from '../shared/expression.model';
 import { AnswerFormat } from '../shared/answer-format.model';
+import { ExpressionHelper } from '../shared/expression-helper';
 
 @Component({
   selector: 'app-expression-input',
@@ -124,7 +125,7 @@ export class ExpressionInputComponent implements OnInit {
         break;
 
       default:
-        if (this.isValidExpressionKey(event.key)) {
+        if (ExpressionHelper.isValidExpressionCharacter(event.key)) {
           this.insertToken(this.caretPosition, event.key);
           handled = true;
         }
@@ -184,59 +185,8 @@ export class ExpressionInputComponent implements OnInit {
     this.evaluate.emit();
   }
 
-  private isValidExpressionKey(key: string): boolean {
-    if (key.length > 1) {
-      return false;
-    }
-
-    if (key >= '0' && key <= '9') {
-      return true;
-    }
-
-    if ((key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z')) {
-      return true;
-    }
-
-    if (this.isOperatorToken(key)) {
-      return true;
-    }
-
-    switch (key) {
-      case ',':
-      case '.':
-      case ';':
-      case ':':
-      case '(':
-      case ')':
-      case '[':
-      case ']':
-      case '#':
-      case ' ':
-        return true;
-
-      default:
-        return false;
-    }
-  }
-
-  private isOperatorToken(token: string): boolean {
-    switch (token) {
-      case '*':
-      case '/':
-      case '+':
-      case '-':
-      case '%':
-      case '^':
-      case '√':
-        return true;
-
-      default:
-        return false;
-    }
-  }
-
   private insertToken(position: number, token: string) {
-    const tokenType = this.getTokenType(token);
+    const tokenType = ExpressionHelper.getTokenType(token);
     this.expression.splice(this.expression.length - position, 0, { value: token, type: tokenType });
     this.emitExpressionChange();
   }
@@ -244,14 +194,6 @@ export class ExpressionInputComponent implements OnInit {
   private insertExpression(position: number, expression: Expression) {
     this.expression.splice(this.expression.length - position, 0, ...expression);
     this.emitExpressionChange();
-  }
-
-  private getTokenType(token: string): TokenType {
-    if (this.isOperatorToken(token)) {
-      return TokenType.Operator;
-    }
-
-    return TokenType.Default;
   }
 
   private emitExpressionChange() {
