@@ -17,24 +17,28 @@
 </div>
 
 <mat-nav-list class="main-menu">
-  <a *ngFor="let module of modules"
-    mat-list-item
-    [routerLink]='module.routerLink'
-    [routerLinkActive]='["link-active"]'
-    [routerLinkActiveOptions]='{ exact: true }'
-    (click)="onItemClick()">
-    <mat-icon matListItemIcon [svgIcon]="module.icon"></mat-icon>
-    <span class="label">{{ module.name }}</span>
-  </a>
+  @for (module of modules; track module) {
+    <a
+      mat-list-item
+      [routerLink]='module.routerLink'
+      [routerLinkActive]='["link-active"]'
+      [routerLinkActiveOptions]='{ exact: true }'
+      (click)="onItemClick()">
+      <mat-icon matListItemIcon [svgIcon]="module.icon"></mat-icon>
+      <span class="label">{{ module.name }}</span>
+    </a>
+  }
 </mat-nav-list>
 
 <mat-divider></mat-divider>
 
 <mat-nav-list class="additional-menu">
-  <a mat-list-item (click)="appInstaller.install()" *ngIf="appInstaller.canInstall">
-    <mat-icon matListItemIcon svgIcon="get_app"></mat-icon>
-    <span class="label">Install App</span>
-  </a>
+  @if (appInstaller.canInstall) {
+    <a mat-list-item (click)="appInstaller.install()">
+      <mat-icon matListItemIcon svgIcon="get_app"></mat-icon>
+      <span class="label">Install App</span>
+    </a>
+  }
 
   <a mat-list-item
     routerLink='/settings'

@@ -9,19 +9,17 @@
 
 <div mat-dialog-content>
   <div class="talex-form-grid">
-    <ng-container *ngIf="this.themingService.theme.value === 'light-theme'; else darkColors">
+    @if (this.themingService.theme.value === 'light-theme') {
       <talex-color-picker [(color)]="data.backgroundColor" placeholder="Background color"></talex-color-picker>
       <talex-color-picker [(color)]="data.foregroundColor" placeholder="Foreground color"></talex-color-picker>
       <talex-color-picker [(color)]="data.gridlinesColor" placeholder="Gridlines color"></talex-color-picker>
       <talex-color-picker [(color)]="data.axesColor" placeholder="Axes color"></talex-color-picker>
-    </ng-container>
-
-    <ng-template #darkColors>
+    } @else {
       <talex-color-picker [(color)]="data.backgroundColorDark" placeholder="Background color"></talex-color-picker>
       <talex-color-picker [(color)]="data.foregroundColorDark" placeholder="Foreground color"></talex-color-picker>
       <talex-color-picker [(color)]="data.gridlinesColorDark" placeholder="Gridlines color"></talex-color-picker>
       <talex-color-picker [(color)]="data.axesColorDark" placeholder="Axes color"></talex-color-picker>
-    </ng-template>
+    }
 
     <mat-slide-toggle color="primary" [(ngModel)]="data.gridlinesVisibility">Gridlines</mat-slide-toggle>
     <mat-slide-toggle color="primary" [(ngModel)]="data.axesVisibility">Axes</mat-slide-toggle>

@@ -1,7 +1,13 @@
 <mat-nav-list>
-  <a *ngFor="let option of feedbackOptions"
-    mat-list-item href="{{ option.url }}" target="{{ option.newWindow ? '_blank' : '_self' }}" rel="noopener noreferrer"
-    (click)="clickLink()">
-    {{ option.text }}
-  </a>
+  @for (option of feedbackOptions; track option) {
+    <a
+      mat-list-item
+      href="{{ option.url }}"
+      target="{{ option.newWindow ? '_blank' : '_self' }}"
+      rel="noopener noreferrer"
+      (click)="clickLink()"
+    >
+      {{ option.text }}
+    </a>
+  }
 </mat-nav-list>

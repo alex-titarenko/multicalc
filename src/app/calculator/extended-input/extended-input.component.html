@@ -1,6 +1,8 @@
 <mat-nav-list>
-  <a *ngFor="let input of inputs" mat-list-item (click)="emitInput(input.token)">
-    <span class="token">{{ input.token }}</span>
-    <span class="text">{{ input.text }}</span>
-  </a>
+  @for (input of inputs; track input) {
+    <a mat-list-item (click)="emitInput(input.token)">
+      <span class="token">{{ input.token }}</span>
+      <span class="text">{{ input.text }}</span>
+    </a>
+  }
 </mat-nav-list>

@@ -2,14 +2,16 @@
 <p>Our Service uses the following 3rd-party libraries:</p>
 
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let packageLicense of packageLicenses">
-    <mat-expansion-panel-header>
-      <mat-panel-title>{{ packageLicense.packageName }}</mat-panel-title>
-      <mat-panel-description>{{ packageLicense.licenseName }}</mat-panel-description>
-    </mat-expansion-panel-header>
+  @for (packageLicense of packageLicenses; track packageLicense) {
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ packageLicense.packageName }}</mat-panel-title>
+        <mat-panel-description>{{ packageLicense.licenseName }}</mat-panel-description>
+      </mat-expansion-panel-header>
 
-    <pre>{{ packageLicense.licenseText }}</pre>
-  </mat-expansion-panel>
+      <pre>{{ packageLicense.licenseText }}</pre>
+    </mat-expansion-panel>
+  }
 </mat-accordion>
 
 <h2>Third Pary Media Items</h2>
@@ -17,7 +19,7 @@
 
 <mat-card appearance="outlined" class="media-items-list">
   <mat-list role="list">
-    <ng-container *ngFor="let mediaLicense of mediaLicenses; last as isLast">
+    @for (mediaLicense of mediaLicenses; track mediaLicense; let isLast = $last) {
       <mat-list-item role="listitem">
         <span>
           <a href="{{ mediaLicense.itemUrl }}" target="_blank" rel="noopener">{{ mediaLicense.itemName }}</a>
@@ -27,8 +29,10 @@
           <br>Licensed by <a href="{{ mediaLicense.licenseUrl }}" title="{{ mediaLicense.licenseName }}" target="_blank" rel="noopener">{{ mediaLicense.licenseName }}</a>
         </span>
       </mat-list-item>
-      <mat-divider *ngIf="!isLast"></mat-divider>
-    </ng-container>
+      @if (!isLast) {
+        <mat-divider></mat-divider>
+      }
+    }
   </mat-list>
 </mat-card>
 

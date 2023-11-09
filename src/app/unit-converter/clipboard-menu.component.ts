@@ -22,9 +22,11 @@ function sanitizeNumericValue(value: string) : string | undefined {
     <span matListItemTitle>Copy</span>
   </a>
 
-  <a *ngIf="data.onPaste !== undefined" mat-list-item (click)="paste()">
-    <span matListItemTitle>Paste</span>
-  </a>
+  @if (data.onPaste !== undefined) {
+    <a mat-list-item (click)="paste()">
+      <span matListItemTitle>Paste</span>
+    </a>
+  }
 </mat-nav-list>
 `
 })
