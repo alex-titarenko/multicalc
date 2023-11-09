@@ -16,7 +16,17 @@ function sanitizeNumericValue(value: string) : string | undefined {
 
 @Component({
   selector: 'app-converter-clipboard-menu',
-  templateUrl: './clipboard-menu.component.html'
+  template: `
+<mat-nav-list>
+  <a mat-list-item (click)="copy()">
+    <span matListItemTitle>Copy</span>
+  </a>
+
+  <a *ngIf="data.onPaste !== undefined" mat-list-item (click)="paste()">
+    <span matListItemTitle>Paste</span>
+  </a>
+</mat-nav-list>
+`
 })
 export class ClipboardMenuComponent {
   protected data: ClipboardMenuData;

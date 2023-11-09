@@ -6,7 +6,7 @@ import { Unit } from 'mathcore/unit-conversion/units/unit';
 import { UnitConverter } from 'mathcore/unit-conversion/unit-converter';
 import { quantityAttribute } from 'mathcore/unit-conversion/quantities/annotation/quantity.attribute';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { ClipboardMenuComponent } from './clipboard-menu/clipboard-menu.component';
+import { ClipboardMenuComponent } from './clipboard-menu.component';
 
 interface ConverterResult {
   unit: string;

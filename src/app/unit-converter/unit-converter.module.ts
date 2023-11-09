@@ -1,4 +1,4 @@
-import { ClipboardMenuComponent } from './clipboard-menu/clipboard-menu.component';
+import { ClipboardMenuComponent } from './clipboard-menu.component';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from 'shared/material.module';
 import { NgCommonModule } from 'ng-common';
