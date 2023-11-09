@@ -122,6 +122,10 @@ export class ExpressionHelper {
     return [...str].map(ch => ({ value: ch, type: this.getTokenType(ch) }));
   }
 
+  public static expressionToString(expr: Expression): string {
+    return expr.map(x => x.value).join('');
+  }
+
   private static formatComplex(c: Complex, answerFormat: AnswerFormat): Expression {
     const formattedObj = NumericUtils.complexZeroThreshold(c, answerFormat.complexThreshold, answerFormat.zeroThreshold);
 

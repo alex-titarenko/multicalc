@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Expression, TokenType } from '../shared/expression.model';
 import { AnswerFormat } from '../shared/answer-format.model';
 import { ExpressionHelper } from '../shared/expression-helper';
+import { formatMathResult } from '../shared/math-result-helper';
 
 @Component({
   selector: 'app-expression-input',
@@ -84,7 +85,7 @@ export class ExpressionInputComponent implements OnInit {
     return this.expression.map(x => x.value).join('');
   }
 
-  public onKeyDown(event: KeyboardEvent): void {
+  public async onKeyDown(event: KeyboardEvent): Promise<void> {
     var handled = false;
 
     switch (event.key) {
@@ -125,7 +126,14 @@ export class ExpressionInputComponent implements OnInit {
         break;
 
       default:
-        if (ExpressionHelper.isValidExpressionCharacter(event.key)) {
+        if (event.metaKey || event.ctrlKey) {
+          if (event.key === 'c') {
+            await this.copyExpression();
+          } else if (event.key === 'v') {
+            await this.pasteExpression();
+          }
+          handled = true;
+        } else if (ExpressionHelper.isValidExpressionCharacter(event.key)) {
           this.insertToken(this.caretPosition, event.key);
           handled = true;
         }
@@ -199,5 +207,20 @@ export class ExpressionInputComponent implements OnInit {
   private emitExpressionChange() {
     const expressionCopy = this.expression.slice(0);
     this.expressionChange.emit(expressionCopy);
+  }
+
+  private async copyExpression() {
+    const copyStr = this.answer ?
+      formatMathResult(this.answer, this.answerFormat, false) :
+      ExpressionHelper.expressionToString(this.expression);
+
+    await navigator.clipboard.writeText(copyStr);
+  }
+
+  private async pasteExpression() {
+    const text = await navigator.clipboard.readText();
+    if (ExpressionHelper.isValidExpressionString(text)) {
+      this.inputExpression(ExpressionHelper.stringToExpression(text));
+    }
   }
 }

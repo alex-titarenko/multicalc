@@ -33,7 +33,7 @@ export class ExpressionMenuComponent {
 
   protected async copyExpression() {
     const exprString = Array.isArray(this.data.expression) ?
-      this.data.expression.map(x => x.value).join('') :
+      ExpressionHelper.expressionToString(this.data.expression) :
       formatMathResult(this.data.expression, this.data.answerFormat, false);
     navigator.clipboard.writeText(exprString);
     this.bottomSheetRef.dismiss();
