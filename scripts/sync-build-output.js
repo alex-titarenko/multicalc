@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-const sourcePath = 'dist/client-app'
+const sourcePath = 'dist/client-app/browser'
 
 const scriptArgs = process.argv.slice(2)
 const [destinationPath] = scriptArgs
