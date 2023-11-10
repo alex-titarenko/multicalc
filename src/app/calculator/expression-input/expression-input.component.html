@@ -10,6 +10,7 @@
       (resizeComplete)="onResizeComplete()"
       (keydown)="onKeyDown($event)"
       (mousedown)="onMouseDown($event)"
+      (touchstart)="OnTouchStart($event)"
     >
       <span [ngClass]="{'caret': caretPosition === expression.length}">&nbsp;</span>
       @for (token of expression; track token; let i = $index) {

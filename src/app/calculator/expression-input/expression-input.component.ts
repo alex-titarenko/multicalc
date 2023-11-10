@@ -147,22 +147,31 @@ export class ExpressionInputComponent implements OnInit {
   }
 
   public onMouseDown(event: MouseEvent) {
-    const targetElement = <HTMLElement>event.target;
+    this.updateCaretPosition(<HTMLElement>event.target, event.pageX);
+  }
 
-    if (targetElement.tagName === 'SPAN') {
-      const elementWidth = targetElement.offsetWidth;
-      const elementOffsetX = event.pageX - targetElement.offsetLeft;
-
-      const nodes = <[HTMLElement]>Array.prototype.slice.call(targetElement.parentElement.children);
-      const selectedIndex = nodes.indexOf(targetElement);
-      this.caretPosition = this.expression.length - selectedIndex + (1 - Math.round(elementOffsetX / elementWidth));
-    } else {
-      this.caretPosition = this.expression.length;
-    }
+  public OnTouchStart(event: TouchEvent) {
+    this.updateCaretPosition(<HTMLElement>event.target, event.touches.item(0).pageX);
   }
 
   public onResizeComplete() {
     this.resizeComplete.emit();
+  }
+
+  private updateCaretPosition(targetElement: HTMLElement, pageX: number) {
+    if (targetElement.tagName === 'SPAN') {
+      const elementWidth = targetElement.offsetWidth;
+      const elementOffsetX = pageX - targetElement.offsetLeft;
+
+      const nodes = <[HTMLElement]>Array.prototype.slice.call(targetElement.parentElement.children);
+      const selectedIndex = nodes.indexOf(targetElement);
+      this.caretPosition = Math.min(
+        this.expression.length,
+        this.expression.length - selectedIndex + (1 - Math.round(elementOffsetX / elementWidth))
+      );
+    } else {
+      this.caretPosition = this.expression.length;
+    }
   }
 
   private moveCaretLeft(): boolean {
