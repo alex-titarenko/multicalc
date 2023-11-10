@@ -7,8 +7,9 @@ export const appConfig = {
   get copyright() { return `Copyright © ${ new Date().getFullYear() } ${ appConfig.companyName }`; },
   get feedbackEmail() { return packageJson['feedbackEmail']; },
   get supportEmail() { return packageJson['supportEmail']; },
-  get homepageLink() { return packageJson['homepageLink']; },
-  get facebookLink() { return packageJson['facebookLink']; },
-  get twitterLink() { return packageJson['twitterLink']; },
-  get instagramLink() { return packageJson['instagramLink']; }
+  get appUrl() { return packageJson['appUrl']; },
+  get homepageUrl() { return packageJson['homepageUrl']; },
+  get facebookUrl() { return packageJson['facebookUrl']; },
+  get twitterUrl() { return packageJson['twitterUrl']; },
+  get instagramUrl() { return packageJson['instagramUrl']; }
 };

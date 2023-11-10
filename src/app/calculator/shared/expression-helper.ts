@@ -1,8 +1,9 @@
-import { Complex } from 'mathcore/complex';
-import { CMatrix } from 'mathcore/linear-algebra/cmatrix';
-import { NumericUtils } from 'mathcore/numeric-utils';
-import { Token, TokenType, Expression } from './expression.model';
+import { Expression, Token, TokenType } from './expression.model';
+
 import { AnswerFormat } from './answer-format.model';
+import { CMatrix } from 'mathcore/linear-algebra/cmatrix';
+import { Complex } from 'mathcore/complex';
+import { NumericUtils } from 'mathcore/numeric-utils';
 
 function defaultToken(tokenValue: string): Token {
   return { value: tokenValue, type: TokenType.Default };
@@ -24,12 +25,12 @@ export class ExpressionHelper {
   }
 
   public static complexToExpression(c: Complex, format: (n: number) => string): Expression {
-    let realExpr = ExpressionHelper.stringToExpression(format(Math.abs(c.real)), TokenType.Default);
+    let realExpr = ExpressionHelper.stringToExpression(format(Math.abs(c.real)));
     if (c.real < 0) {
       realExpr = [opToken('-'), ...realExpr];
     }
     const absImagExpr = [
-      ...ExpressionHelper.stringToExpression(format(Math.abs(c.imag)), TokenType.Default),
+      ...ExpressionHelper.stringToExpression(format(Math.abs(c.imag))),
       defaultToken('i')
     ];
 
@@ -70,6 +71,61 @@ export class ExpressionHelper {
     return result;
   }
 
+  public static getTokenType(token: string): TokenType {
+    if (this.isOperatorToken(token)) {
+      return TokenType.Operator;
+    }
+
+    return TokenType.Default;
+  }
+
+  public static isValidExpressionString(str: string) {
+    return [...str].every(ch => this.isValidExpressionCharacter(ch));
+  }
+
+  public static isValidExpressionCharacter(key: string): boolean {
+    if (key.length > 1) {
+      return false;
+    }
+
+    if (key >= '0' && key <= '9') {
+      return true;
+    }
+
+    if ((key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z')) {
+      return true;
+    }
+
+    if (this.isOperatorToken(key)) {
+      return true;
+    }
+
+    switch (key) {
+      case ',':
+      case '.':
+      case ';':
+      case ':':
+      case '(':
+      case ')':
+      case '[':
+      case ']':
+      case '#':
+      case ' ':
+        return true;
+
+      default:
+        return false;
+    }
+  }
+
+  public static stringToExpression(str: string): Expression {
+    return [...str].map(ch => ({ value: ch, type: this.getTokenType(ch) }));
+  }
+
+  public static expressionToString(expr: Expression): string {
+    return expr.map(x => x.value).join('');
+  }
+
   private static formatComplex(c: Complex, answerFormat: AnswerFormat): Expression {
     const formattedObj = NumericUtils.complexZeroThreshold(c, answerFormat.complexThreshold, answerFormat.zeroThreshold);
 
@@ -78,13 +134,19 @@ export class ExpressionHelper {
       n => NumericUtils.formatNumber(n, answerFormat.decimalPlaces, answerFormat.numericFormat, false));
   }
 
-  private static stringToExpression(str: string, tokenType: TokenType): Expression {
-    const expression: Expression = [];
+  private static isOperatorToken(token: string): boolean {
+    switch (token) {
+      case '*':
+      case '/':
+      case '+':
+      case '-':
+      case '%':
+      case '^':
+      case '√':
+        return true;
 
-    for (let i = 0; i < str.length; i++) {
-      expression.push({ value: str[i], type: tokenType });
+      default:
+        return false;
     }
-
-    return expression;
   }
 }

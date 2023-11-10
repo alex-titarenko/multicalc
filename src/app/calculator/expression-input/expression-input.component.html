@@ -1,18 +1,30 @@
 <div class="expression-container">
-  <div class="expression-input" tabindex="0" *ngIf="answer === null"
-    talexFitChildren minFontSize="25" maxFontSize="40" scrollIntoSelector=".caret" (resizeComplete)="onResizeComplete()"
-    (keydown)="onKeyDown($event)"
-    (mousedown)="onMouseDown($event)">
-    <span [ngClass]="{'caret': caretPosition === expression.length}">&nbsp;</span>
-    <span *ngFor="let token of expression; index as i"
-      [innerHtml]="token.value | mathToken"
-      [ngClass]="{
-        'caret': expression.length - i - 1 === caretPosition,
-        'token-opp': token.type === 'operator'
-      }"></span>
-  </div>
-
-  <div class="answer" *ngIf="answer !== null"
-    [innerHtml]="answer | mathResult:answerFormat">
-  </div>
+  @if (answer === null) {
+    <div
+      class="expression-input"
+      tabindex="0"
+      talexFitChildren
+      minFontSize="25"
+      maxFontSize="40"
+      scrollIntoSelector=".caret"
+      (resizeComplete)="onResizeComplete()"
+      (keydown)="onKeyDown($event)"
+      (mousedown)="onMouseDown($event)"
+      (touchstart)="OnTouchStart($event)"
+    >
+      <span [ngClass]="{'caret': caretPosition === expression.length}">&nbsp;</span>
+      @for (token of expression; track token; let i = $index) {
+        <span
+          [innerHtml]="token.value | mathToken"
+          [ngClass]="{
+            'caret': expression.length - i - 1 === caretPosition,
+            'token-opp': token.type === 'operator'
+          }">
+        </span>
+      }
+    </div>
+  } @else {
+    <div class="answer" [innerHtml]="answer | mathResult:answerFormat">
+    </div>
+  }
 </div>

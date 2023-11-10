@@ -13,14 +13,25 @@
 
 <div class="page-container calculator-page">
   <div class="expression-container">
-    <app-expression-input #exprInput
+    <app-expression-input
+      #exprInput
       [answer]="answer"
       [answerFormat]="preferences.answerFormat"
       (expressionChange)="onExpressionChange($event)"
       (evaluate)="evaluateExpr()"
-      (resizeComplete)="fitChild.customResize()"></app-expression-input>
+      (resizeComplete)="fitChild.customResize()"
+      talexClickable
+      (elPress)="showExpressionMenu()">
+    </app-expression-input>
 
-    <div class="instant-result" talexFitChild align="top right" [customHandler]="true" #fitChild="FitChild"
+    <div
+      class="instant-result"
+      talexFitChild
+      align="top right"
+      [customHandler]="true"
+      #fitChild="FitChild"
+      talexClickable
+      (elClick)="showInstantResultMenu()"
       [ngClass]="{'hidden': answer !== null}"
       [innerHtml]="instantResult | mathResult:preferences.answerFormat">
     </div>

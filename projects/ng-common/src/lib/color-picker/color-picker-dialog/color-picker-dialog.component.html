@@ -12,10 +12,14 @@
         </ng-template>
 
         <div class="color-picker-tab-content pallete-tab">
-          <div *ngFor="let row of palette" class="pallete-row">
-            <div *ngFor="let color of row" [style.background]="color" class="pallete-color" (click)="updateColor(color)">
+          @for (row of palette; track row) {
+            <div class="pallete-row">
+              @for (color of row; track color) {
+                <div [style.background]="color" class="pallete-color" (click)="updateColor(color)">
+                </div>
+              }
             </div>
-          </div>
+          }
         </div>
       </mat-tab>
       <mat-tab>

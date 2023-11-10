@@ -11,29 +11,35 @@
       <div class="units-container">
         <div class="target-quantity-select">
           <mat-select [(value)]="targetQuantity" class="uppercase">
-            <mat-option *ngFor="let quantityModel of quantities" class="uppercase" [value]="quantityModel">
-              {{ quantityModel.quantity.name }}
-            </mat-option>
+            @for (quantityModel of quantities; track quantityModel) {
+              <mat-option class="uppercase" [value]="quantityModel">
+                {{ quantityModel.quantity.name }}
+              </mat-option>
+            }
           </mat-select>
         </div>
 
         <div class="input-container">
-          <div class="text-block" talexFitText maxFontSize="150">
+          <div class="text-block" talexFitText maxFontSize="150" talexClickable (elPress)="inputMenu()">
             {{ sourceValue }}
           </div>
 
           <mat-select class="unit-select" [(value)]="targetQuantity.inputUnit">
-            <mat-option *ngFor="let unit of targetQuantity.quantity.units" [value]="unit">{{ unit.plural }}</mat-option>
+            @for (unit of targetQuantity.quantity.units; track unit) {
+              <mat-option [value]="unit">{{ unit.plural }}</mat-option>
+            }
           </mat-select>
         </div>
 
         <div class="output-container">
-          <div class="text-block" talexFitText maxFontSize="150">
+          <div class="text-block" talexFitText maxFontSize="150" talexClickable (elPress)="outputMenu()">
             {{ convertedValue.toSignificantDigits(MaxInputLength - 1).toFixed() }}
           </div>
 
           <mat-select class="unit-select" [(value)]="targetQuantity.outputUnit">
-            <mat-option *ngFor="let unit of targetQuantity.quantity.units" [value]="unit">{{ unit.plural }}</mat-option>
+            @for (unit of targetQuantity.quantity.units; track unit) {
+              <mat-option [value]="unit">{{ unit.plural }}</mat-option>
+            }
           </mat-select>
         </div>
       </div>
@@ -64,10 +70,12 @@
     <mat-card appearance="outlined" class="expended-output-container">
       <mat-card-content>
         <div class="expended-output-grid">
-          <div *ngFor="let result of converterValues" class="expended-output-item">
-            <span class="expended-output-result">{{ result.value.toDecimalPlaces(MaxInputLength - 1).toFixed() }}</span>
-            <span class="expended-output-unit">{{ result.unit }}</span>
-          </div>
+          @for (result of converterValues; track result) {
+            <div class="expended-output-item">
+              <span class="expended-output-result">{{ result.value.toDecimalPlaces(MaxInputLength - 1).toFixed() }}</span>
+              <span class="expended-output-unit">{{ result.unit }}</span>
+            </div>
+          }
         </div>
       </mat-card-content>
     </mat-card>

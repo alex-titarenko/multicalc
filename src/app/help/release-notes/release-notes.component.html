@@ -1,22 +1,29 @@
 <div class="header">
   <h2>Release Notes</h2>
   <span class="spacer"></span>
-  <button mat-stroked-button *ngIf="!notes.multi" (click)="expand()">Expand</button>
-  <button mat-stroked-button *ngIf="notes.multi" (click)="collapse()">Collapse</button>
+  @if (notes.multi) {
+    <button mat-stroked-button (click)="collapse()">Collapse</button>
+  } @else {
+    <button mat-stroked-button (click)="expand()">Expand</button>
+  }
 </div>
 
 <mat-accordion #notes="matAccordion">
-  <mat-expansion-panel *ngFor="let releaseInfo of releaseNotes">
-    <mat-expansion-panel-header>
-      <mat-panel-title>v.{{ releaseInfo.version }}</mat-panel-title>
-      <mat-panel-description>{{ releaseInfo.releaseDate | date:'longDate' }}</mat-panel-description>
-    </mat-expansion-panel-header>
+  @for (releaseInfo of releaseNotes; track releaseInfo) {
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>v.{{ releaseInfo.version }}</mat-panel-title>
+        <mat-panel-description>{{ releaseInfo.releaseDate | date:'longDate' }}</mat-panel-description>
+      </mat-expansion-panel-header>
 
-    <strong>{{ releaseInfo.description }}</strong>
-    <ul class="release-notes-list">
-      <li *ngFor="let note of releaseInfo.notes">{{ note }}</li>
-    </ul>
-  </mat-expansion-panel>
+      <strong>{{ releaseInfo.description }}</strong>
+      <ul class="release-notes-list">
+        @for (note of releaseInfo.notes; track note) {
+          <li>{{ note }}</li>
+        }
+      </ul>
+    </mat-expansion-panel>
+  }
 </mat-accordion>
 
 <div class="bottom-spacer"></div>

@@ -1,11 +1,11 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
 
-import { SharingService } from 'ng-common';
-
-import { BasePageComponent } from 'shared/base-page.component';
 import { AnalyticsService } from '../core/analytics/analytics.service';
+import { BasePageComponent } from 'shared/base-page.component';
 import { FeedbackOptionsComponent } from './feedback-options/feedback-options.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { SharingService } from 'ng-common';
+import { appConfig } from 'app/core/configs/app.config';
 
 @Component({
   selector: 'app-help',
@@ -22,10 +22,8 @@ export class HelpComponent extends BasePageComponent {
     super(elementRef);
   }
 
-  public share(): void {
-    const url = window.location.origin;
-    this.sharingService.shareUrl(url);
-
+  public async share(): Promise<void> {
+    await this.sharingService.shareUrl(appConfig.appUrl);
     this.analyticsService.trackEvent('app_share');
   }
 

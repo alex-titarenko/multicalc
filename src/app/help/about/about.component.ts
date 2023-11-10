@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { appConfig } from 'app/core/configs/app.config';
 
 @Component({
@@ -8,7 +9,7 @@ import { appConfig } from 'app/core/configs/app.config';
 })
 export class AboutComponent implements OnInit {
   public readonly appName = appConfig.name;
-  public readonly homepageUrl = appConfig.homepageLink;
+  public readonly homepageUrl = appConfig.homepageUrl;
   public readonly appVersion = appConfig.version;
   public readonly copyright = appConfig.copyright;
 

@@ -18,6 +18,9 @@ import { HistoryItem, HistoryData, historyFromJson } from './shared/history-data
 import { Expression } from './shared/expression.model';
 import { ExpressionInputComponent } from './expression-input/expression-input.component';
 import { CalculatorHelpComponent } from './calculator-help/calculator-help.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { InstantResultMenuComponent } from './menus/instant-result-menu.component';
+import { ExpressionMenuComponent } from './menus/expression-menu.component';
 
 @Component({
   selector: 'app-calculator-component',
@@ -48,7 +51,8 @@ export class CalculatorComponent extends BasePageComponent implements OnInit, Do
     private settingsService: SettingsService,
     private expressionEvaluator: ExpressionEvaluatorService,
     private breakpointObserver: BreakpointObserver,
-    private iterableDiffers: IterableDiffers) {
+    private iterableDiffers: IterableDiffers,
+    private bottomSheet: MatBottomSheet) {
     super(elementRef);
   }
 
@@ -174,6 +178,29 @@ export class CalculatorComponent extends BasePageComponent implements OnInit, Do
 
   public openHelp(): void {
     this.dialog.open(CalculatorHelpComponent);
+  }
+
+  public showExpressionMenu() {
+    this.bottomSheet.open(ExpressionMenuComponent, {
+      data: {
+        expression: this.answer ?? this.expression,
+        onPaste: ((newExpression: Expression) => {
+          this.expressionInput.inputExpression(newExpression);
+        }),
+        answerFormat: this.preferences.answerFormat
+      }
+    });
+  }
+
+  public showInstantResultMenu() {
+    if (this.instantResult != null) {
+      this.bottomSheet.open(InstantResultMenuComponent, {
+        data: {
+          value: this.instantResult,
+          answerFormat: this.preferences.answerFormat
+        }
+      });
+    }
   }
 
   private addHistoryItem(historyItem: HistoryItem) {

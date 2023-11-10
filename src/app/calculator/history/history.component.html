@@ -7,16 +7,19 @@
 
 <div mat-dialog-content class="history-content">
   <mat-list role="list">
-    <ng-container *ngFor="let bracket of historyBrackets; first as isFirst">
-      <mat-divider *ngIf="!isFirst"></mat-divider>
+    @for (bracket of historyBrackets; track bracket; let isFirst = $first) {
+      @if (!isFirst) {
+        <mat-divider></mat-divider>
+      }
       <h3 matSubheader>{{ bracket.name }}</h3>
 
-      <ng-container
-        *ngFor="let historyItem of bracket.items"
-        [ngTemplateOutlet]="historyItemTemplate"
-        [ngTemplateOutletContext]="{ historyItem: historyItem }">
-      </ng-container>
-    </ng-container>
+      @for (historyItem of bracket.items; track historyItem) {
+        <ng-container
+          [ngTemplateOutlet]="historyItemTemplate"
+          [ngTemplateOutletContext]="{ historyItem: historyItem }">
+        </ng-container>
+      }
+    }
   </mat-list>
 </div>
 
@@ -24,10 +27,12 @@
   <mat-list-item class="history-item">
     <div matLine matRipple mat-flat-button class="button expression" (click)="emitInsertExpression(historyItem.expression)">
       <div class="history-expression">
-          <span *ngFor="let token of historyItem.expression"
-          [innerHtml]="token.value | mathToken"
-          [ngClass]="token.type">
-        </span>
+        @for (token of historyItem.expression; track token) {
+          <span
+            [innerHtml]="token.value | mathToken"
+            [ngClass]="token.type">
+          </span>
+        }
       </div>
     </div>
 

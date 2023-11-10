@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Expression, TokenType } from '../shared/expression.model';
 import { AnswerFormat } from '../shared/answer-format.model';
+import { ExpressionHelper } from '../shared/expression-helper';
+import { formatMathResult } from '../shared/math-result-helper';
 
 @Component({
   selector: 'app-expression-input',
@@ -83,7 +85,7 @@ export class ExpressionInputComponent implements OnInit {
     return this.expression.map(x => x.value).join('');
   }
 
-  public onKeyDown(event: KeyboardEvent): void {
+  public async onKeyDown(event: KeyboardEvent): Promise<void> {
     var handled = false;
 
     switch (event.key) {
@@ -124,7 +126,14 @@ export class ExpressionInputComponent implements OnInit {
         break;
 
       default:
-        if (this.isValidExpressionKey(event.key)) {
+        if (event.metaKey || event.ctrlKey) {
+          if (event.key === 'c') {
+            await this.copyExpression();
+          } else if (event.key === 'v') {
+            await this.pasteExpression();
+          }
+          handled = true;
+        } else if (ExpressionHelper.isValidExpressionCharacter(event.key)) {
           this.insertToken(this.caretPosition, event.key);
           handled = true;
         }
@@ -138,22 +147,31 @@ export class ExpressionInputComponent implements OnInit {
   }
 
   public onMouseDown(event: MouseEvent) {
-    const targetElement = <HTMLElement>event.target;
+    this.updateCaretPosition(<HTMLElement>event.target, event.pageX);
+  }
 
-    if (targetElement.tagName === 'SPAN') {
-      const elementWidth = targetElement.offsetWidth;
-      const elementOffsetX = event.pageX - targetElement.offsetLeft;
-
-      const nodes = <[HTMLElement]>Array.prototype.slice.call(targetElement.parentElement.children);
-      const selectedIndex = nodes.indexOf(targetElement);
-      this.caretPosition = this.expression.length - selectedIndex + (1 - Math.round(elementOffsetX / elementWidth));
-    } else {
-      this.caretPosition = this.expression.length;
-    }
+  public OnTouchStart(event: TouchEvent) {
+    this.updateCaretPosition(<HTMLElement>event.target, event.touches.item(0).pageX);
   }
 
   public onResizeComplete() {
     this.resizeComplete.emit();
+  }
+
+  private updateCaretPosition(targetElement: HTMLElement, pageX: number) {
+    if (targetElement.tagName === 'SPAN') {
+      const elementWidth = targetElement.offsetWidth;
+      const elementOffsetX = pageX - targetElement.offsetLeft;
+
+      const nodes = <[HTMLElement]>Array.prototype.slice.call(targetElement.parentElement.children);
+      const selectedIndex = nodes.indexOf(targetElement);
+      this.caretPosition = Math.min(
+        this.expression.length,
+        this.expression.length - selectedIndex + (1 - Math.round(elementOffsetX / elementWidth))
+      );
+    } else {
+      this.caretPosition = this.expression.length;
+    }
   }
 
   private moveCaretLeft(): boolean {
@@ -184,59 +202,8 @@ export class ExpressionInputComponent implements OnInit {
     this.evaluate.emit();
   }
 
-  private isValidExpressionKey(key: string): boolean {
-    if (key.length > 1) {
-      return false;
-    }
-
-    if (key >= '0' && key <= '9') {
-      return true;
-    }
-
-    if ((key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z')) {
-      return true;
-    }
-
-    if (this.isOperatorToken(key)) {
-      return true;
-    }
-
-    switch (key) {
-      case ',':
-      case '.':
-      case ';':
-      case ':':
-      case '(':
-      case ')':
-      case '[':
-      case ']':
-      case '#':
-      case ' ':
-        return true;
-
-      default:
-        return false;
-    }
-  }
-
-  private isOperatorToken(token: string): boolean {
-    switch (token) {
-      case '*':
-      case '/':
-      case '+':
-      case '-':
-      case '%':
-      case '^':
-      case '√':
-        return true;
-
-      default:
-        return false;
-    }
-  }
-
   private insertToken(position: number, token: string) {
-    const tokenType = this.getTokenType(token);
+    const tokenType = ExpressionHelper.getTokenType(token);
     this.expression.splice(this.expression.length - position, 0, { value: token, type: tokenType });
     this.emitExpressionChange();
   }
@@ -246,16 +213,23 @@ export class ExpressionInputComponent implements OnInit {
     this.emitExpressionChange();
   }
 
-  private getTokenType(token: string): TokenType {
-    if (this.isOperatorToken(token)) {
-      return TokenType.Operator;
-    }
-
-    return TokenType.Default;
-  }
-
   private emitExpressionChange() {
     const expressionCopy = this.expression.slice(0);
     this.expressionChange.emit(expressionCopy);
+  }
+
+  private async copyExpression() {
+    const copyStr = this.answer ?
+      formatMathResult(this.answer, this.answerFormat, false) :
+      ExpressionHelper.expressionToString(this.expression);
+
+    await navigator.clipboard.writeText(copyStr);
+  }
+
+  private async pasteExpression() {
+    const text = await navigator.clipboard.readText();
+    if (ExpressionHelper.isValidExpressionString(text)) {
+      this.inputExpression(ExpressionHelper.stringToExpression(text));
+    }
   }
 }
