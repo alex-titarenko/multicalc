@@ -162,5 +162,14 @@ export const releaseNotes: ReleaseInfo[] = [
     notes: [
       'Faster start-up time'
     ]
+  },
+  {
+    version: '1.6.0',
+    releaseDate: new Date('11/9/2023'),
+    description: 'Copy/paste functionality',
+    notes: [
+      'Copy/paste functionality for expression field of calculator module',
+      'Copy/paste functionality for input/output fields of unit converter module'
+    ]
   }
 ];
