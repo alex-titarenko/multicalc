@@ -17,9 +17,7 @@
     "build:prod": "ng build --configuration production && npm run sync",
     "sync": "npm run sync:apple",
     "sync:apple": "node ./scripts/sync-build-output apple/assets/www",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "test": "ng test"
   },
   "private": true,
   "type": "module",
