@@ -4,7 +4,7 @@
     "target": {
       "namespace": "android_app",
       "package_name": "app.multicalculator.www",
-      "sha256_cert_fingerprints": ["DF:6D:1E:61:5E:4F:7A:72:2B:C3:84:A1:5C:11:0A:05:53:99:10:F5:7E:65:D2:19:EA:2F:F0:94:BB:9A:0A:83"]
+      "sha256_cert_fingerprints": ["BC:2F:0D:7D:57:F2:A7:91:04:D2:16:BA:D1:EB:7D:E1:46:05:77:BD:69:A6:97:35:25:E1:3F:DF:00:95:6F:FA"]
     }
   },
   {
