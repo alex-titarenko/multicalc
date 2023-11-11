@@ -90,8 +90,8 @@
   "related_applications": [
     {
       "platform": "play",
-      "url": "https://play.google.com/store/apps/details/?id=app.multicalculator",
-      "id": "app.multicalculator"
+      "url": "https://play.google.com/store/apps/details?id=app.multicalculator.www",
+      "id": "app.multicalculator.www"
     },
     {
       "platform": "windows",
