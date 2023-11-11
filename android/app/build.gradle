@@ -51,6 +51,7 @@ def twaManifest = [
 ]
 
 android {
+    compileSdk 33
     defaultConfig {
         applicationId "app.multicalculator.www"
         minSdkVersion 19
@@ -156,6 +157,7 @@ android {
     lintOptions {
         checkReleaseBuilds false
     }
+    namespace 'app.multicalculator.www'
 }
 
 task generateShorcutsFile {
