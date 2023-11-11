@@ -1,5 +1,18 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target" : { "namespace": "android_app", "package_name": "app.multicalculator",
-               "sha256_cert_fingerprints": ["22:79:53:83:8F:DE:1C:67:31:67:FF:43:58:B8:0F:04:E9:9D:4C:D6:11:7F:48:2C:1A:CA:7E:59:5C:C0:60:D4"] }
-}]
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.multicalculator.www",
+      "sha256_cert_fingerprints": ["DF:6D:1E:61:5E:4F:7A:72:2B:C3:84:A1:5C:11:0A:05:53:99:10:F5:7E:65:D2:19:EA:2F:F0:94:BB:9A:0A:83"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : {
+      "namespace": "android_app",
+      "package_name": "app.multicalculator",
+      "sha256_cert_fingerprints": ["22:79:53:83:8F:DE:1C:67:31:67:FF:43:58:B8:0F:04:E9:9D:4C:D6:11:7F:48:2C:1A:CA:7E:59:5C:C0:60:D4"]
+    }
+  }
+]
