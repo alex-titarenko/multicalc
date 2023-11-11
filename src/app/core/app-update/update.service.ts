@@ -8,15 +8,17 @@ import { SwUpdate } from '@angular/service-worker';
 export class UpdateService {
   constructor(swUpdate: SwUpdate, private snackbar: MatSnackBar) {
     swUpdate.versionUpdates.subscribe(event => {
-      const snack = this.snackbar.open('Update Available', 'Reload', {
-        duration: 6000
-      });
-
-      snack
-        .onAction()
-        .subscribe(() => {
-          swUpdate.activateUpdate().then(() => window.location.reload());
+      if (event.type === 'VERSION_READY') {
+        const snack = this.snackbar.open('Update Available', 'Reload', {
+          duration: 6000
         });
+
+        snack
+          .onAction()
+          .subscribe(() => {
+            swUpdate.activateUpdate().then(() => window.location.reload());
+          });
+      }
     });
   }
 }
