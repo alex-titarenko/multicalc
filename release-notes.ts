@@ -171,5 +171,13 @@ export const releaseNotes: ReleaseInfo[] = [
       'Copy/paste functionality for expression field of calculator module',
       'Copy/paste functionality for input/output fields of unit converter module'
     ]
+  },
+  {
+    version: '1.7.0',
+    releaseDate: new Date('8/21/2024'),
+    description: 'Additional units for data conversion',
+    notes: [
+      'Adds additional units for data conversion'
+    ]
   }
 ];
