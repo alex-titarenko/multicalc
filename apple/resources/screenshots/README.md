@@ -1,1 +1,0 @@
-https://studio.app-mockup.com
