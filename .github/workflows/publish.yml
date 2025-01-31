@@ -36,12 +36,12 @@ jobs:
         run: npm ci
 
       - name: Build Angular app 🏗️
-        run: ng build --output-path out --base-href /
+        run: npm run build:prod
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./dist
 
   deploy:
     environment:
