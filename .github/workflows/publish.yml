@@ -38,6 +38,9 @@ jobs:
       - name: Build Angular app 🏗️
         run: npm run build:prod
 
+      - name: Fix SPA
+        run: cp ./dist/client-app/browser/index.html ./dist/client-app/browser/404.html
+
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
